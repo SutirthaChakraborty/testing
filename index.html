@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpiceRoute - Authentic Indian Food Delivery</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #e63946;
+            --accent-color: #f1a208;
+            --dark-color: #1d3557;
+            --light-color: #f1faee;
+            --grey-color: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--light-color);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--dark-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 28px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--dark-color);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .hero-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2; /* Ensure content is above the overlay */
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #c62d3a;
+        }
+
+        /* About Section */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 15px auto 0;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Menu Section */
+        .menu-section {
+            background-color: var(--grey-color);
+        }
+
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            background-color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-item-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .menu-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .menu-item:hover .menu-item-image img {
+            transform: scale(1.1);
+        }
+
+        .menu-item-info {
+            padding: 20px;
+        }
+
+        .menu-item-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .menu-item-desc {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .menu-item-price {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .menu-item-action {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Order Form Section */
+        .order-form-section {
+            background-color: white;
+            padding: 40px 0;
+        }
+
+        .order-form-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .google-form-container {
+            width: 100%;
+            height: 800px;
+            overflow-y: hidden;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .google-form-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Terms Section */
+        .terms-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .terms-content h3 {
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        /* Floating Action Button */
+        .floating-actions {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 99;
+        }
+
+        .floating-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .order-btn {
+            background-color: var(--primary-color);
+        }
+
+        .call-btn {
+            background-color: var(--dark-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column-reverse;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .google-form-container {
+                height: 1000px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                gap: 15px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .google-form-container {
+                height: 1200px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .google-form-container {
+                height: 1500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo"><i class="fas fa-utensils"></i> SpiceRoute</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#order">Order Now</a></li>
+                    <li><a href="#terms">Terms</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="policy.html">Privacy Policy</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <!-- Fixed video background -->
+        <div class="hero-video">
+            <video autoplay muted loop playsinline>
+                <source src="sample.mp4" type="video/mp4">
+                <!-- Fallback if video doesn't load -->
+                <source src="sample.webm" type="video/webm">
+                Your browser does not support HTML5 video.
+            </video>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Authentic Indian Cuisine Delivered to Your Doorstep</h1>
+                <p>Experience the rich flavors and aromatic spices of India with our chef-crafted meals</p>
+                <a href="#order" class="btn">Order Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">Our Story</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>At SpiceRoute, we are passionate about bringing the authentic taste of India to your doorstep. Our journey began with a simple desire to share the rich culinary heritage of India with food enthusiasts around the city.</p>
+                    <p>Every dish is prepared with love, using traditional recipes passed down through generations, and made with the freshest locally-sourced ingredients and aromatic spices imported directly from various regions of India.</p>
+                    <p>We take pride in offering a diverse menu that represents the various culinary traditions of India, from the robust flavors of the North to the subtle and delicate tastes of the South.</p>
+                </div>
+                <div class="about-image" style="height: 320px; display: flex; align-items: center; justify-content: center;">
+                    <!-- Updated video styling to scale appropriately -->
+                    <video autoplay muted loop playsinline style="width: 100%; max-height: 300px; object-fit: contain; display: block; border-radius: 10px;">
+                        <source src="sample2.mp4" type="video/mp4">
+                        <source src="sample2.webm" type="video/webm">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="section menu-section" id="menu">
+        <div class="container">
+            <h2 class="section-title">Our Delicious Menu</h2>
+            <div class="menu-tabs">
+                <button class="tab-btn active" data-category="all">All</button>
+                <button class="tab-btn" data-category="starters">Starters</button>
+                <button class="tab-btn" data-category="mains">Main Course</button>
+                <button class="tab-btn" data-category="breads">Breads</button>
+                <button class="tab-btn" data-category="desserts">Desserts</button>
+            </div>
+
+            <div class="menu-grid">
+                <!-- Menu Item 1 -->
+                <div class="menu-item" data-category="starters">
+                    <div class="menu-item-image">
+                        <img src="images/menu/vegetable_samosa.jpg" alt="Vegetable Samosa">
+                    </div>
+                    <div class="menu-item-info">
+                        <h3 class="menu-item-title">Vegetable Samosa</h3>
+                        <p class="menu-item-desc">Crispy pastry stuffed with spiced potatoes and peas, served with mint chutney</p>
+                        <div class="menu-item-action">
+                            <a href="#order" class="btn">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu Item 2 -->
+                <div class="menu-item" data-category="mains">
+                    <div class="menu-item-image">
+                        <img src="images/menu/butter_chicken.jpeg" alt="Butter Chicken">
+                    </div>
+                    <div class="menu-item-info">
+                        <h3 class="menu-item-title">Butter Chicken</h3>
+                        <p class="menu-item-desc">Tender chicken pieces cooked in a rich, creamy tomato sauce with aromatic spices</p>
+                        <div class="menu-item-action">
+                            <a href="#order" class="btn">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu Item 3 -->
+                <div class="menu-item" data-category="mains">
+                    <div class="menu-item-image">
+                        <img src="images/menu/paneer-tikka-masala-recipe.jpg" alt="Paneer Tikka Masala">
+                    </div>
+                    <div class="menu-item-info">
+                        <h3 class="menu-item-title">Paneer Tikka Masala</h3>
+                        <p class="menu-item-desc">Grilled cottage cheese cubes simmered in a spicy tomato-based gravy</p>
+                        <div class="menu-item-action">
+                            <a href="#order" class="btn">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu Item 4 -->
+                <div class="menu-item" data-category="breads">
+                    <div class="menu-item-image">
+                        <img src="images/menu/garlic-butter-naan.jpg" alt="Garlic Naan">
+                    </div>
+                    <div class="menu-item-info">
+                        <h3 class="menu-item-title">Garlic Naan</h3>
+                        <p class="menu-item-desc">Soft, leavened flatbread topped with garlic and fresh cilantro</p>
+                        <div class="menu-item-action">
+                            <a href="#order" class="btn">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu Item 5 -->
+                <div class="menu-item" data-category="desserts">
+                    <div class="menu-item-image">
+                        <img src="images/menu/gulab_jamun.jpeg" alt="Gulab Jamun">
+                    </div>
+                    <div class="menu-item-info">
+                        <h3 class="menu-item-title">Gulab Jamun</h3>
+                        <p class="menu-item-desc">Soft milk solids dumplings soaked in rose-flavored sugar syrup</p>
+                        <div class="menu-item-action">
+                            <a href="#order" class="btn">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu Item 6 -->
+                <div class="menu-item" data-category="starters">
+                    <div class="menu-item-image">
+                        <img src="images/menu/Onion-Bhaji-square.jpg" alt="Onion Bhaji">
+                    </div>
+                    <div class="menu-item-info">
+                        <h3 class="menu-item-title">Onion Bhaji</h3>
+                        <p class="menu-item-desc">Crispy deep-fried onion fritters seasoned with Indian spices</p>
+                        <div class="menu-item-action">
+                            <a href="#order" class="btn">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Form Section (Google Forms) -->
+    <section class="section order-form-section" id="order">
+        <div class="container">
+            <h2 class="section-title">Order Now</h2>
+            <div class="order-form-container">
+                <p style="text-align: center; margin-bottom: 20px;">Please fill out the form below to place your order. We accept payment on delivery or via online payment options.</p>
+                <div class="google-form-container">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSflCZKVtN2udJjMASuA0jdSHwDK7mVFAvuvpDO-j4FR_9XRQQ/viewform?embedded=true" width="640" height="3469" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terms Section -->
+    <section class="section" id="terms">
+        <div class="container">
+            <h2 class="section-title">Terms & Conditions</h2>
+            <div class="terms-content">
+                <p>Please read the following terms and conditions carefully before placing an order with SpiceRoute:</p>
+
+                <h3>Ordering</h3>
+                <p>All orders must be placed through our website's order form. Orders will be confirmed via email or phone. Payment must be made at the time of delivery or through our online payment options.</p>
+
+                <h3>Delivery</h3>
+                <p>We deliver to selected areas within a 10-mile radius of our kitchen. Delivery times are subject to traffic conditions and order volume. We aim to deliver all orders within the specified time frame, but delays may occasionally occur.</p>
+
+                <h3>Cancellation</h3>
+                <p>Orders can be cancelled up to 2 hours before the scheduled delivery time without any charge. Cancellations made less than 2 hours before delivery time will incur a 50% cancellation fee.</p>
+
+                <h3>Minimum Order</h3>
+                <p>Please note that we require a minimum of two meals per delivery as we cannot deliver just one meal.</p>
+
+                <h3>Food Allergies</h3>
+                <p>Please inform us of any food allergies or dietary restrictions when placing your order. While we take all precautions to avoid cross-contamination, we cannot guarantee that our food is free from allergens.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>SpiceRoute</h3>
+                    <p>Bringing the authentic taste of India to your doorstep since 2020.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#order">Order Now</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Spice Street, Flavortown, FT 12345</li>
+                        <li><i class="fas fa-phone"></i> +353 894376007</li>
+                        <li><i class="fas fa-envelope"></i> info@spiceroute.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Sun: 11:00 AM - 10:00 PM</li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for exclusive offers and updates.</p>
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px;" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2025 SpiceRoute. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+        <a href="#order" class="floating-btn order-btn">
+            <i class="fas fa-utensils"></i>
+        </a>
+        <a href="tel:5551234567" class="floating-btn call-btn">
+            <i class="fas fa-phone"></i>
+        </a>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+
+        // Menu Filter
+        const menuTabs = document.querySelectorAll('.tab-btn');
+        const menuItems = document.querySelectorAll('.menu-item');
+
+        menuTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                menuTabs.forEach(t => t.classList.remove('active'));
+
+                // Add active class to clicked tab
+                tab.classList.add('active');
+
+                const category = tab.getAttribute('data-category');
+
+                // Filter menu items
+                menuItems.forEach(item => {
+                    if (category === 'all' || item.getAttribute('data-category') === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Adjust iframe height based on content
+        window.addEventListener('message', function(event) {
+            if (event.data.type === 'resize') {
+                const iframe = document.querySelector('.google-form-container iframe');
+                if (iframe) {
+                    iframe.style.height = event.data.height + 'px';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
