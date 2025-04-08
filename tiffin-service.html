@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiffin Service - Must Tiffin</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo"><i class="fas fa-utensils"></i> Must Tiffin</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-dropdown-toggle">Our Offerings <i class="fas fa-chevron-down"></i></a>
+                        <ul class="nav-dropdown-menu">
+                            <li><a href="tiffin-service.html" class="active">Tiffin Service</a></li>
+                            <li><a href="event-catering.html">Event Catering</a></li>
+                            <li><a href="corporate-catering.html">Corporate Catering</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#testimonials">Testimonials</a></li>
+                    <li><a href="index.html#feedback">Feedback</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="policy.html">Policy</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="container">
+            <h1>Tiffin Service</h1>
+            <p class="cultural-phrase" id="serviceBannerPhrase">Ghar ka khana, Maa ke haath ka khana!</p>
+            <p>(Home food, just like Mom makes it!)</p>
+        </div>
+    </section>
+
+    <!-- Service Details -->
+    <section class="service-details">
+        <div class="container">
+            <div class="service-row">
+                <div class="service-content" data-aos="fade-right">
+                    <h2>Daily Fresh Indian Meals Delivered to Your Door</h2>
+                    <p><span class="highlight-text">"Ditch the takeaways, embrace the dabba-wala way!"</span></p>
+                    <p>Our signature Tiffin Service brings the authentic taste of India right to your doorstep in Dublin. Inspired by Mumbai's legendary dabba-wala system, we deliver freshly prepared, home-style Indian meals daily or weekly according to your preference.</p>
+                    <p>Each tiffin is prepared with love, using traditional recipes and the freshest ingredients. It's the perfect solution for busy professionals, students, and families who crave nutritious, homemade Indian food without the hassle of cooking.</p>
+                    <h3>Benefits of Our Tiffin Service:</h3>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Fresh, home-style cooking</li>
+                        <li><i class="fas fa-check-circle"></i> Balanced, nutritious meals</li>
+                        <li><i class="fas fa-check-circle"></i> Rotating menu with diverse regional dishes</li>
+                        <li><i class="fas fa-check-circle"></i> Flexible subscription options</li>
+                        <li><i class="fas fa-check-circle"></i> No wastage - perfect portion sizes</li>
+                    </ul>
+                </div>
+                <div class="service-image" data-aos="fade-left">
+                    <img src="images/menu/butter_chicken.jpeg" alt="Tiffin Service">
+                </div>
+            </div>
+            
+            <div class="service-row reverse">
+                <div class="service-content" data-aos="fade-left">
+                    <h2>Our Tiffin Plans</h2>
+                    <div class="pricing-cards">
+                        <div class="pricing-card">
+                            <div class="pricing-header">
+                                <h3>Weekly Plan</h3>
+                                <p class="price">€13<span>/meal</span></p>
+                            </div>
+                            <div class="pricing-features">
+                                <p>5 or 7 meals per week</p>
+                                <p>Main course</p>
+                                <p>Dal or curry</p>
+                                <p>Rice</p>
+                                <p>2 Rotis/Naan</p>
+                                <p>Weekly payment</p>
+                            </div>
+                            <a href="#order-form" class="btn">Subscribe Now</a>
+                        </div>
+                        
+                        <div class="pricing-card featured">
+                            <div class="popular-tag">Most Popular</div>
+                            <div class="pricing-header">
+                                <h3>Monthly Plan</h3>
+                                <p class="price">€12<span>/meal</span></p>
+                            </div>
+                            <div class="pricing-features">
+                                <p>20 or 30 meals per month</p>
+                                <p>Main course</p>
+                                <p>Dal or curry</p>
+                                <p>Rice</p>
+                                <p>2 Rotis/Naan</p>
+                                <p>Monthly payment</p>
+                                <p>Weekend dessert surprise</p>
+                            </div>
+                            <a href="#order-form" class="btn">Subscribe Now</a>
+                        </div>
+                        
+                        <div class="pricing-card">
+                            <div class="pricing-header">
+                                <h3>Premium Plan</h3>
+                                <p class="price">€15<span>/meal</span></p>
+                            </div>
+                            <div class="pricing-features">
+                                <p>Choose any number of meals</p>
+                                <p>Main course</p>
+                                <p>Premium curry</p>
+                                <p>Rice/Biryani</p>
+                                <p>2 Rotis/Naan</p>
+                                <p>Side salad</p>
+                                <p>Dessert with every meal</p>
+                                <p>Customizable menu</p>
+                            </div>
+                            <a href="#order-form" class="btn">Subscribe Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-image" data-aos="fade-right">
+                    <img src="images/menu/garlic-butter-naan.jpg" alt="Tiffin Plans">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section" style="background-color: var(--grey-color);">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">How Our Tiffin Service Works</h2>
+            <p class="text-center" data-aos="fade-up">Simple, convenient, and delicious - bringing homestyle Indian cooking to your table has never been easier</p>
+            
+            <div class="services-container">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-image" style="height: 180px;">
+                        <i class="fas fa-clipboard-list" style="font-size: 60px; color: var(--accent-color); display: flex; justify-content: center; align-items: center; height: 100%;"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">1. Subscribe</h3>
+                        <p class="service-desc">Choose your preferred tiffin plan, select delivery days, and mention any dietary preferences or restrictions.</p>
+                    </div>
+                    <div class="cultural-tag">Simple as chai!</div>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-image" style="height: 180px;">
+                        <i class="fas fa-utensils" style="font-size: 60px; color: var(--primary-color); display: flex; justify-content: center; align-items: center; height: 100%;"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">2. We Cook</h3>
+                        <p class="service-desc">Our chefs prepare fresh meals daily using authentic recipes and the finest ingredients, just like home cooking.</p>
+                    </div>
+                    <div class="cultural-tag">Swad apne ghar ka!</div>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-image" style="height: 180px;">
+                        <i class="fas fa-truck" style="font-size: 60px; color: var(--info-color); display: flex; justify-content: center; align-items: center; height: 100%;"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">3. We Deliver</h3>
+                        <p class="service-desc">Your tiffin arrives at your doorstep within your selected time slot, hot and ready to enjoy!</p>
+                    </div>
+                    <div class="cultural-tag">No more bother!</div>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-image" style="height: 180px;">
+                        <i class="fas fa-sync" style="font-size: 60px; color: var(--success-color); display: flex; justify-content: center; align-items: center; height: 100%;"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">4. Return & Repeat</h3>
+                        <p class="service-desc">We collect the previous day's tiffin boxes and deliver fresh meals. Eco-friendly and zero waste!</p>
+                    </div>
+                    <div class="cultural-tag">Jugaad at its best!</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weekly Menu Section -->
+    <section class="weekly-menu">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Sample Weekly Menu</h2>
+            <p class="text-center" data-aos="fade-up">Our menu changes weekly, featuring a delicious variety of regional Indian cuisines. Here's a sample of what you might enjoy:</p>
+            
+            <div class="menu-grid">
+                <div class="menu-day" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Monday</h3>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <span class="dish">Paneer Butter Masala</span>
+                            <span class="dish-type veg">Veg</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="dish">Dal Tadka</span>
+                            <span class="dish-type veg">Veg</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="dish">Jeera Rice</span>
+                            <span class="dish-type veg">Veg</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="dish">Butter Naan</span>
+                            <span class="dish-type veg">Veg</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-day" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Tuesday</h3>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <span class="dish">Butter Chicken</span>
+                            <span class="dish-type non-veg">Non-Veg</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="dish">Aloo Gobi</span>
+                            <span class="dish-type veg">Veg</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="dish">Pulao Rice</span>
+                            <span class="dish-type veg">Veg</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="dish">Garlic Naan</span>
+                            <span class="dish-type veg">Veg</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-day" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Wednesday</h3>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <span class="dish">Chana Masala</span>
+                            <span class="dish-type veg">Veg</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="dish">Lamb Curry</span>
+                            <span class="dish-type non-veg">Non-Veg</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="dish">Steamed Rice</span>
+                            <span class="dish-type veg">Veg</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="dish">Tandoori Roti</span>
+                            <span class="dish-type veg">Veg</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-day" data-aos="fade-up" data-aos-delay="400">
+                    <h3>Thursday</h3>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <span class="dish">Malai Kofta</span>
+                            <span class="dish-type veg">Veg</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="dish">Chicken Curry</span>
+                            <span class="dish-type non-veg">Non-Veg</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="dish">Lemon Rice</span>
+                            <span class="dish-type veg">Veg</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="dish">Plain Naan</span>
+                            <span class="dish-type veg">Veg</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-day" data-aos="fade-up" data-aos-delay="500">
+                    <h3>Friday</h3>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <span class="dish">Vegetable Biryani</span>
+                            <span class="dish-type veg">Veg</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="dish">Fish Curry</span>
+                            <span class="dish-type non-veg">Non-Veg</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="dish">Raita</span>
+                            <span class="dish-type veg">Veg</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="dish">Gulab Jamun</span>
+                            <span class="dish-type veg">Dessert</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-day" data-aos="fade-up" data-aos-delay="600">
+                    <h3>Saturday</h3>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <span class="dish">Chicken Biryani</span>
+                            <span class="dish-type non-veg">Non-Veg</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="dish">Paneer Tikka Masala</span>
+                            <span class="dish-type veg">Veg</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="dish">Boondi Raita</span>
+                            <span class="dish-type veg">Veg</span>
+                        </div>
+                        <div class="menu-item">
+                            <span class="dish">Ras Malai</span>
+                            <span class="dish-type veg">Dessert</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Form Section -->
+    <section id="order-form" class="order-form-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Subscribe to Our Tiffin Service</h2>
+            <p class="text-center" data-aos="fade-up">
+                <span class="highlight-text">"Khayega India, toh badhega India!"</span><br>
+                (India will eat, India will grow!)
+            </p>
+            <div class="order-form-container">
+                <div class="google-form-container" data-aos="fade-up">
+                    <iframe id="tiffinFormIframe" width="640" height="1800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Frequently Asked Questions</h2>
+            
+            <div class="accordion" data-aos="fade-up">
+                <div class="accordion-item">
+                    <button class="accordion-button">
+                        <span>What areas of Dublin do you deliver to?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>We currently deliver to most areas within Dublin city and some surrounding areas. During the subscription process, you can check if delivery is available at your address. We're continuously expanding our delivery zones!</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <button class="accordion-button">
+                        <span>What if I have food allergies or dietary restrictions?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>We take allergies and dietary restrictions very seriously. During the subscription process, you can specify any allergies or preferences. We offer vegetarian, vegan, gluten-free, and other specialized menu options. Our kitchen takes great care to avoid cross-contamination.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <button class="accordion-button">
+                        <span>Can I pause my subscription when I'm on holiday?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Absolutely! You can pause, skip, or modify your tiffin deliveries with 48 hours' notice. Simply log into your account or contact our customer service team, and we'll take care of it.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <button class="accordion-button">
+                        <span>How is the food packaged and delivered?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>We use high-quality, eco-friendly stainless steel tiffin containers that keep your food hot and fresh. Our delivery team ensures prompt delivery within your chosen time slot. The tiffin boxes are collected the next day when your new meal is delivered.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <button class="accordion-button">
+                        <span>Can I order extra portions if I have guests?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Yes, you can order additional tiffin boxes for guests by notifying us at least 24 hours in advance. These will be charged at your regular subscription rate or slightly higher for one-off additions.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <button class="accordion-button">
+                        <span>What if I don't like a particular day's menu?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>We publish our weekly menu in advance so you can see what's coming. If there's a day you'd prefer to skip or if you want to request a substitution, just let us know 48 hours in advance. Premium plan subscribers can customize their menu more extensively.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">What Our Tiffin Customers Say</h2>
+            <div class="testimonials-container">
+                <div class="testimonial" data-aos="fade-up">
+                    <p class="testimonial-text">"As an Indian student in Dublin, I was really missing home food. Must Tiffin has been a lifesaver! Their meals remind me of my mom's cooking, and the rotating menu means I never get bored. The convenience factor is just the cherry on top!"</p>
+                    <span class="testimonial-author">Ananya Sharma</span>
+                    <span class="testimonial-role">PhD Student</span>
+                </div>
+                
+                <div class="testimonial" data-aos="fade-up" data-aos-delay="100">
+                    <p class="testimonial-text">"My Irish family and I have fallen in love with Indian cuisine thanks to Must Tiffin. Their portion sizes are perfect, and it's been a fantastic way for us to explore authentic Indian food beyond the typical restaurant dishes. The weekly changing menu is always exciting!"</p>
+                    <span class="testimonial-author">Cillian Murphy</span>
+                    <span class="testimonial-role">Family Subscription (4 people)</span>
+                </div>
+                
+                <div class="testimonial" data-aos="fade-up" data-aos-delay="200">
+                    <p class="testimonial-text">"As a busy professional working long hours, cooking proper meals was always a challenge. Must Tiffin's service has been a game-changer for my nutrition. The food is always fresh, delicious and I love that it's different every day. The eco-friendly tiffin system is the icing on the cake!"</p>
+                    <span class="testimonial-author">Priya Patel</span>
+                    <span class="testimonial-role">IT Consultant</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Must Tiffin</h3>
+                    <p>Bringing the authentic taste of India to your doorstep in Dublin since 2023.</p>
+                    <div class="social-links">
+                        <a href="#" id="facebookLink"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" id="instagramLink"><i class="fab fa-instagram"></i></a>
+                        <a href="#" id="twitterLink"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="#order-form">Subscribe</a></li>
+                        <li><a href="index.html#feedback">Feedback</a></li>
+                        <li><a href="policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> <span id="addressText">123 Spice Street, Dublin</span></li>
+                        <li><i class="fas fa-phone"></i> <span id="phoneText">+353 894376007</span></li>
+                        <li><i class="fas fa-envelope"></i> <span id="emailText">info@musttiffin.com</span></li>
+                        <li><i class="fas fa-clock"></i> <span id="hoursText">Mon-Sun: 11:00 AM - 10:00 PM</span></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for exclusive offers and updates.</p>
+                    <form action="#" method="POST" id="footerNewsletterForm">
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px;" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2025 Must Tiffin. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+        <a href="#order-form" class="floating-btn order-btn">
+            <i class="fas fa-utensils"></i>
+        </a>
+        <a href="tel:+353894376007" class="floating-btn call-btn" id="callBtn">
+            <i class="fas fa-phone"></i>
+        </a>
+    </div>
+
+    <!-- AOS Animation Library -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <!-- Settings File -->
+    <script src="settings.js"></script>
+    <!-- JavaScript -->
+    <script>
+        // Initialize AOS animation library
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            
+            // Load settings from settings.js
+            loadSettings();
+            
+            // Initialize accordion
+            initAccordion();
+        });
+        
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+        
+        // Accordion functionality
+        function initAccordion() {
+            const accordionButtons = document.querySelectorAll('.accordion-button');
+            
+            accordionButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const accordionItem = button.parentElement;
+                    const content = button.nextElementSibling;
+                    
+                    // Toggle active class
+                    accordionItem.classList.toggle('active');
+                    
+                    // Toggle icon
+                    const icon = button.querySelector('i');
+                    if (accordionItem.classList.contains('active')) {
+                        icon.classList.remove('fa-plus');
+                        icon.classList.add('fa-minus');
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                    } else {
+                        icon.classList.remove('fa-minus');
+                        icon.classList.add('fa-plus');
+                        content.style.maxHeight = null;
+                    }
+                });
+            });
+        }
+        
+        // Function to load settings
+        function loadSettings() {
+            // Load Google form URL
+            document.getElementById('tiffinFormIframe').src = siteSettings.forms.tiffinService;
+            
+            // Load contact information
+            document.getElementById('phoneText').textContent = siteSettings.phone;
+            document.getElementById('addressText').textContent = siteSettings.address;
+            document.getElementById('emailText').textContent = siteSettings.email;
+            document.getElementById('hoursText').textContent = siteSettings.businessHours;
+            document.getElementById('callBtn').href = 'tel:' + siteSettings.phone;
+            
+            // Load social media links
+            document.getElementById('facebookLink').href = siteSettings.socialMedia.facebook;
+            document.getElementById('instagramLink').href = siteSettings.socialMedia.instagram;
+            document.getElementById('twitterLink').href = siteSettings.socialMedia.twitter;
+            
+            // Load a random cultural phrase
+            loadRandomPhrase();
+        }
+        
+        // Function to load random cultural phrase
+        function loadRandomPhrase() {
+            const allPhrases = [
+                ...siteSettings.culturalPhrases.hindi,
+                ...siteSettings.culturalPhrases.irish,
+                ...siteSettings.culturalPhrases.southIndian,
+                ...siteSettings.culturalPhrases.marathi,
+                ...siteSettings.culturalPhrases.bengali
+            ];
+            
+            const randomPhrase = allPhrases[Math.floor(Math.random() * allPhrases.length)];
+            document.getElementById('serviceBannerPhrase').textContent = randomPhrase;
+        }
+        
+        // Handle newsletter form
+        document.getElementById('footerNewsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            window.open(siteSettings.forms.newsletter, '_blank');
+        });
+    </script>
+</body>
+</html>

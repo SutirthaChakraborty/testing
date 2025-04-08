@@ -42,12 +42,54 @@
         p {
             margin-bottom: 15px;
         }
+        /* Navigation styles */
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .nav-btn {
+            padding: 10px 20px;
+            background-color: #1d3557;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .back-btn {
+            background-color: #e63946;
+        }
+        .home-btn {
+            background-color: #1d3557;
+        }
+        .services-btn {
+            background-color: #457b9d;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1 class="section-title">Privacy Policy</h1>
-        <button onclick="history.back()" style="margin-bottom: 20px; padding: 10px 20px; background-color: #e63946; color: white; border: none; border-radius: 4px; cursor: pointer;">Back</button>
+        
+        <div class="nav-container">
+            <div class="nav-buttons">
+                <a href="index.html" class="nav-btn home-btn"><i class="fas fa-home"></i> Home</a>
+                <button onclick="history.back()" class="nav-btn back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+            </div>
+            <div class="nav-buttons">
+                <a href="tiffin-service.html" class="nav-btn services-btn">Tiffin Service</a>
+                <a href="event-catering.html" class="nav-btn services-btn">Event Catering</a>
+                <a href="corporate-catering.html" class="nav-btn services-btn">Corporate Catering</a>
+            </div>
+        </div>
+        
         <p>Last Updated on October 19th 2021. This privacy policy is effective immediately.</p>
         <p>O’Desi Meals, trading under Fallforgreen Ltd. (the “Company” or “We”), takes your privacy seriously and are fully committed to keeping your information private. We are committed to protecting it through our compliance with this policy.</p>
         <p>The processing and sharing of personal information comes with significant rights on your part and significant responsibilities on ours.</p>
@@ -77,7 +119,7 @@
         <ul>
             <li>Personal data must be processed lawfully, fairly and transparently.</li>
             <li>Lawful – the legal basis for processing personal data is normally based on relevant legislation. We are permitted by law to process information to administer our operations on delivery, payment and core function of payment and order fulfilment.</li>
-            <li>Fairly – in order for processing to be fair, we have to make certain information available to you. This applies whether the personal data was obtained directly from you or from other sources. In our case, you are the source of the personal data. O’Desi Meals is the processor of the data.</p>
+            <li>Fairly – in order for processing to be fair, we have to make certain information available to you. This applies whether the personal data was obtained directly from you or from other sources. In our case, you are the source of the personal data. O’Desi Meals is the processor of the data.</li>
             <li>Transparently – We will provide a Data Privacy Statement upfront whenever you are sharing personal information with the Department. We will ensure that the information provided is detailed and specific, and that the information is understandable and accessible.</li>
         </ul>
         <h3>Responsibilities under GDPR</h3>
@@ -142,6 +184,17 @@
         <p>Fallforgreen Ltd.</p>
         <p>Trading Name O'Desi Meals</p>
         <p>278 Argyle, Custom House Harbour, IFSC, Dublin 1, Ireland</p>
+        
+        <div class="nav-container" style="margin-top: 40px; border-top: 1px solid #ddd; padding-top: 20px;">
+            <div class="nav-buttons">
+                <a href="index.html" class="nav-btn home-btn"><i class="fas fa-home"></i> Home</a>
+            </div>
+            <div class="nav-buttons">
+                <a href="tiffin-service.html" class="nav-btn services-btn">Tiffin Service</a>
+                <a href="event-catering.html" class="nav-btn services-btn">Event Catering</a>
+                <a href="corporate-catering.html" class="nav-btn services-btn">Corporate Catering</a>
+            </div>
+        </div>
     </div>
 </body>
 </html>

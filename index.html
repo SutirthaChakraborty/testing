@@ -3,20 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SpiceRoute - Authentic Indian Food Delivery</title>
+    <title>Must Tiffin - Authentic Indian Tiffin Service in Dublin</title>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #e63946;
-            --accent-color: #f1a208;
-            --dark-color: #1d3557;
-            --light-color: #f1faee;
+            --primary-color: #FF6B6B; /* Vibrant red */
+            --accent-color: #FFD166; /* Bold yellow */
+            --accent2-color: #4ECDC4; /* Turquoise */
+            --dark-color: #2F4858; /* Deep blue */
+            --light-color: #F9F7F3; /* Off-white */
             --grey-color: #f8f9fa;
+            --success-color: #06D6A0; /* Green */
+            --info-color: #118AB2; /* Blue */
+            --warning-color: #FFA62B; /* Orange */
         }
 
         * {
@@ -42,6 +48,12 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 15px;
+        }
+
+        .highlight-text {
+            font-family: 'Kalam', cursive;
+            color: var(--primary-color);
+            font-size: 1.1em;
         }
 
         /* Header */
@@ -155,6 +167,15 @@
             margin-bottom: 30px;
         }
 
+        .hero .cultural-phrase {
+            font-family: 'Kalam', cursive;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        /* Button Styles */
         .btn {
             display: inline-block;
             padding: 12px 30px;
@@ -165,16 +186,45 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: background-color 0.3s;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
         }
 
         .btn:hover {
-            background-color: #c62d3a;
+            background-color: #e63946;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
-        /* About Section */
-        .section {
+        .btn-secondary {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: #e6b800;
+        }
+
+        .btn-tertiary {
+            background-color: var(--accent2-color);
+        }
+
+        .btn-tertiary:hover {
+            background-color: #3db8b0;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Services Section */
+        .services-section {
             padding: 80px 0;
+            background-color: white;
         }
 
         .section-title {
@@ -191,6 +241,77 @@
             height: 4px;
             background-color: var(--accent-color);
             margin: 15px auto 0;
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+
+        .service-content {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .service-desc {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .cultural-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-family: 'Kalam', cursive;
+            font-weight: bold;
+            transform: rotate(5deg);
+        }
+
+        /* About Section */
+        .section {
+            padding: 80px 0;
         }
 
         .about-content {
@@ -210,100 +331,71 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .about-image img {
+        .about-image img, .about-image video {
             width: 100%;
-            height: 100%;
+            height: auto;
             object-fit: cover;
             display: block;
+            border-radius: 10px;
         }
 
-        /* Menu Section */
-        .menu-section {
-            background-color: var(--grey-color);
+        /* Newsletter Section */
+        .newsletter-section {
+            background-color: var(--accent-color);
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
         }
 
-        .menu-tabs {
+        .newsletter-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .newsletter-section::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            right: -80px;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .newsletter-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .newsletter-title {
+            color: var(--dark-color);
+            margin-bottom: 20px;
+        }
+
+        .newsletter-form {
             display: flex;
-            justify-content: center;
-            margin-bottom: 40px;
             flex-wrap: wrap;
             gap: 10px;
+            justify-content: center;
         }
 
-        .tab-btn {
-            padding: 10px 20px;
-            background-color: white;
+        .newsletter-form input {
+            flex: 1;
+            min-width: 250px;
+            padding: 15px;
             border: none;
             border-radius: 4px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .tab-btn.active, .tab-btn:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .menu-item {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
-        }
-
-        .menu-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .menu-item-image {
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .menu-item-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .menu-item:hover .menu-item-image img {
-            transform: scale(1.1);
-        }
-
-        .menu-item-info {
-            padding: 20px;
-        }
-
-        .menu-item-title {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-        }
-
-        .menu-item-desc {
-            color: #666;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-        }
-
-        .menu-item-price {
-            font-weight: 600;
-            color: var(--primary-color);
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-        }
-
-        .menu-item-action {
-            display: flex;
-            justify-content: center;
+            font-size: 1rem;
         }
 
         /* Order Form Section */
@@ -342,6 +434,54 @@
         .terms-content h3 {
             margin-top: 25px;
             margin-bottom: 15px;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            background-color: var(--grey-color);
+            padding: 80px 0;
+        }
+
+        .testimonials-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: """;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 80px;
+            font-family: Georgia, serif;
+            color: var(--accent-color);
+            opacity: 0.2;
+            line-height: 0;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--dark-color);
+            display: block;
+        }
+
+        .testimonial-role {
+            color: #666;
+            font-size: 0.9rem;
         }
 
         /* Footer */
@@ -448,6 +588,84 @@
             background-color: var(--dark-color);
         }
 
+        /* Food decoration elements */
+        .food-decoration {
+            position: absolute;
+            z-index: 1;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .food-decoration.spice1 {
+            top: 10%;
+            left: 5%;
+            transform: rotate(-15deg);
+            font-size: 40px;
+        }
+
+        .food-decoration.spice2 {
+            bottom: 15%;
+            right: 8%;
+            transform: rotate(20deg);
+            font-size: 36px;
+        }
+
+        .food-decoration.spice3 {
+            top: 30%;
+            right: 10%;
+            transform: rotate(-5deg);
+            font-size: 32px;
+        }
+
+        /* Animation class */
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Tabs for different forms */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            padding: 12px 25px;
+            background-color: var(--grey-color);
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-button.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
         /* Responsive */
         @media (max-width: 992px) {
             .about-content {
@@ -510,15 +728,15 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="#" class="logo"><i class="fas fa-utensils"></i> SpiceRoute</a>
+                <a href="index.html" class="logo"><i class="fas fa-utensils"></i> Must Tiffin</a>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#menu">Menu</a></li>
-                    <li><a href="#order">Order Now</a></li>
-                    <li><a href="#terms">Terms</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#feedback">Feedback</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="policy.html">Privacy Policy</a></li>
+                    <li><a href="policy.html">Policy</a></li>
                 </ul>
                 <button class="mobile-menu-btn" id="mobile-menu-btn">
                     <i class="fas fa-bars"></i>
@@ -533,16 +751,76 @@
         <div class="hero-video">
             <video autoplay muted loop playsinline>
                 <source src="sample.mp4" type="video/mp4">
-                <!-- Fallback if video doesn't load -->
-                <source src="sample.webm" type="video/webm">
                 Your browser does not support HTML5 video.
             </video>
         </div>
+        <!-- Food decoration elements -->
+        <i class="fas fa-pepper-hot food-decoration spice1" style="color: #FF6B6B;"></i>
+        <i class="fas fa-leaf food-decoration spice2" style="color: #4ECDC4;"></i>
+        <i class="fas fa-mortar-pestle food-decoration spice3" style="color: #FFD166;"></i>
+        
         <div class="container">
-            <div class="hero-content">
-                <h1>Authentic Indian Cuisine Delivered to Your Doorstep</h1>
-                <p>Experience the rich flavors and aromatic spices of India with our chef-crafted meals</p>
-                <a href="#order" class="btn">Order Now</a>
+            <div class="hero-content"></div>
+                <h1>Must Tiffin - दिल से तिफ़िन!</h1>
+                <p class="cultural-phrase" id="heroPhrase">Ek baar khao, baar baar aao! (Eat once, come again and again!)</p>
+                <p>Experience the rich flavors and aromatic spices of India with our chef-crafted meals, delivered straight to your doorstep in Dublin</p>
+                <div class="btn-group">
+                    <a href="tiffin-service.html" class="btn">Daily Tiffin</a>
+                    <a href="event-catering.html" class="btn btn-secondary">Event Catering</a>
+                    <a href="corporate-catering.html" class="btn btn-tertiary">Corporate Meals</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Our Services</h2>
+            <p style="text-align: center; margin-bottom: 40px;" data-aos="fade-up" data-aos-delay="100">
+                <span class="highlight-text">"Hamare services, aapka dil jeetenge!"</span><br>
+                (Our services will win your heart!)
+            </p>
+            
+            <div class="services-container">
+                <!-- Tiffin Service -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="cultural-tag">Ghar ka Khana!</div>
+                    <div class="service-image">
+                        <img src="images/menu/butter_chicken.jpeg" alt="Daily Tiffin Service">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Daily Tiffin Service</h3>
+                        <p class="service-desc">Homestyle meals delivered to your doorstep. Choose from weekly or monthly plans with a variety of regional Indian cuisines.</p>
+                        <a href="tiffin-service.html" class="btn">Get Tiffin</a>
+                    </div>
+                </div>
+                
+                <!-- Event Catering -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="cultural-tag">Party Special!</div>
+                    <div class="service-image">
+                        <img src="images/menu/paneer-tikka-masala-recipe.jpg" alt="Event Catering">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Event Catering</h3>
+                        <p class="service-desc">Make your events memorable with our authentic Indian catering. Perfect for birthdays, anniversaries, or any celebration.</p>
+                        <a href="event-catering.html" class="btn btn-secondary">Plan Event</a>
+                    </div>
+                </div>
+                
+                <!-- Corporate Catering -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="cultural-tag">Office Mein Maza!</div>
+                    <div class="service-image">
+                        <img src="images/menu/vegetable_samosa.jpg" alt="Corporate Catering">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Corporate Catering</h3>
+                        <p class="service-desc">Elevate your office meetings and events with our corporate catering packages. Special discounts for regular orders.</p>
+                        <a href="corporate-catering.html" class="btn btn-tertiary">Corporate Menu</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -550,18 +828,19 @@
     <!-- About Section -->
     <section class="section" id="about">
         <div class="container">
-            <h2 class="section-title">Our Story</h2>
+            <h2 class="section-title" data-aos="fade-up">Our Story</h2>
             <div class="about-content">
-                <div class="about-text">
-                    <p>At SpiceRoute, we are passionate about bringing the authentic taste of India to your doorstep. Our journey began with a simple desire to share the rich culinary heritage of India with food enthusiasts around the city.</p>
+                <div class="about-text" data-aos="fade-right">
+                    <p><span class="highlight-text">"Every bite tells our story!"</span></p>
+                    <p>At Must Tiffin, we are passionate about bringing the authentic taste of India to Dublin. Our journey began with a simple desire to share the rich culinary heritage of India with food enthusiasts around the city.</p>
                     <p>Every dish is prepared with love, using traditional recipes passed down through generations, and made with the freshest locally-sourced ingredients and aromatic spices imported directly from various regions of India.</p>
                     <p>We take pride in offering a diverse menu that represents the various culinary traditions of India, from the robust flavors of the North to the subtle and delicate tastes of the South.</p>
+                    <p><span class="highlight-text">"Hamara mission - Happy customers with happy tummies!"</span></p>
                 </div>
-                <div class="about-image" style="height: 320px; display: flex; align-items: center; justify-content: center;">
+                <div class="about-image" data-aos="fade-left">
                     <!-- Updated video styling to scale appropriately -->
-                    <video autoplay muted loop playsinline style="width: 100%; max-height: 300px; object-fit: contain; display: block; border-radius: 10px;">
+                    <video autoplay muted loop playsinline style="width: 100%; object-fit: cover; display: block; border-radius: 10px;">
                         <source src="sample2.mp4" type="video/mp4">
-                        <source src="sample2.webm" type="video/webm">
                         Your browser does not support HTML5 video.
                     </video>
                 </div>
@@ -569,114 +848,111 @@
         </div>
     </section>
 
-    <!-- Menu Section -->
-    <section class="section menu-section" id="menu">
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
         <div class="container">
-            <h2 class="section-title">Our Delicious Menu</h2>
-            <div class="menu-tabs">
-                <button class="tab-btn active" data-category="all">All</button>
-                <button class="tab-btn" data-category="starters">Starters</button>
-                <button class="tab-btn" data-category="mains">Main Course</button>
-                <button class="tab-btn" data-category="breads">Breads</button>
-                <button class="tab-btn" data-category="desserts">Desserts</button>
+            <h2 class="section-title" data-aos="fade-up">What Our Customers Say</h2>
+            <div class="testimonials-container">
+                <div class="testimonial" data-aos="fade-up">
+                    <p class="testimonial-text">"Aisa swad maine India ke bahar kabhi nahi chakha! Must Tiffin has brought the authentic taste of my mother's kitchen right to my Dublin doorstep."</p>
+                    <span class="testimonial-author">Rahul Sharma</span>
+                    <span class="testimonial-role">Regular Customer</span>
+                </div>
+                
+                <div class="testimonial" data-aos="fade-up" data-aos-delay="100">
+                    <p class="testimonial-text">"I never thought I'd fall in love with Indian food until I tried Must Tiffin. Now I'm addicted to their butter chicken and naan! It's Dublin's hidden gem for sure."</p>
+                    <span class="testimonial-author">Sarah O'Connor</span>
+                    <span class="testimonial-role">Monthly Subscription</span>
+                </div>
+                
+                <div class="testimonial" data-aos="fade-up" data-aos-delay="200">
+                    <p class="testimonial-text">"Our office team is absolutely obsessed with Must Tiffin's corporate catering. 'Food coma Fridays' have become our weekly tradition!"</p>
+                    <span class="testimonial-author">Mark Johnson</span>
+                    <span class="testimonial-role">Corporate Client</span>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div class="menu-grid">
-                <!-- Menu Item 1 -->
-                <div class="menu-item" data-category="starters">
-                    <div class="menu-item-image">
-                        <img src="images/menu/vegetable_samosa.jpg" alt="Vegetable Samosa">
-                    </div>
-                    <div class="menu-item-info">
-                        <h3 class="menu-item-title">Vegetable Samosa</h3>
-                        <p class="menu-item-desc">Crispy pastry stuffed with spiced potatoes and peas, served with mint chutney</p>
-                        <div class="menu-item-action">
-                            <a href="#order" class="btn">Order Now</a>
-                        </div>
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-container" data-aos="zoom-in">
+                <h2 class="newsletter-title">Join Our Foodie Community</h2>
+                <p style="margin-bottom: 20px;">Sign up for our newsletter to get exclusive offers, new menu updates, and Indian cooking tips!</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Your Email Address" required>
+                    <button type="submit" class="btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Forms Section with Tabs -->
+    <section class="section order-form-section" id="order">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Order With Us</h2>
+            <div class="tabs">
+                <button class="tab-button active" data-tab="tiffin-service">Tiffin Service</button>
+                <button class="tab-button" data-tab="event-catering">Event Catering</button>
+                <button class="tab-button" data-tab="corporate-catering">Corporate Catering</button>
+            </div>
+            
+            <!-- Tiffin Service Form -->
+            <div id="tiffin-service" class="tab-content active">
+                <div class="order-form-container" data-aos="fade-up">
+                    <p style="text-align: center; margin-bottom: 20px;">
+                        <span class="highlight-text">"Ab ghar ka khana, ghar se bahar!"</span><br>
+                        (Now home food, outside home!)
+                    </p>
+                    <p style="text-align: center; margin-bottom: 20px;">Please fill out the form below to subscribe to our daily tiffin service. We accept payment on delivery or via online payment options.</p>
+                    <div class="google-form-container">
+                        <iframe id="tiffinFormIframe" width="640" height="3469" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
                     </div>
                 </div>
-
-                <!-- Menu Item 2 -->
-                <div class="menu-item" data-category="mains">
-                    <div class="menu-item-image">
-                        <img src="images/menu/butter_chicken.jpeg" alt="Butter Chicken">
-                    </div>
-                    <div class="menu-item-info">
-                        <h3 class="menu-item-title">Butter Chicken</h3>
-                        <p class="menu-item-desc">Tender chicken pieces cooked in a rich, creamy tomato sauce with aromatic spices</p>
-                        <div class="menu-item-action">
-                            <a href="#order" class="btn">Order Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Menu Item 3 -->
-                <div class="menu-item" data-category="mains">
-                    <div class="menu-item-image">
-                        <img src="images/menu/paneer-tikka-masala-recipe.jpg" alt="Paneer Tikka Masala">
-                    </div>
-                    <div class="menu-item-info">
-                        <h3 class="menu-item-title">Paneer Tikka Masala</h3>
-                        <p class="menu-item-desc">Grilled cottage cheese cubes simmered in a spicy tomato-based gravy</p>
-                        <div class="menu-item-action">
-                            <a href="#order" class="btn">Order Now</a>
-                        </div>
+            </div>
+            
+            <!-- Event Catering Form -->
+            <div id="event-catering" class="tab-content">
+                <div class="order-form-container" data-aos="fade-up">
+                    <p style="text-align: center; margin-bottom: 20px;">
+                        <span class="highlight-text">"Make your party dhamakedaar with our food!"</span>
+                    </p>
+                    <p style="text-align: center; margin-bottom: 20px;">Let us cater your next event with authentic Indian flavors. Fill out the form below with your event details.</p>
+                    <div class="google-form-container">
+                        <iframe id="eventFormIframe" width="640" height="2000" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
                     </div>
                 </div>
-
-                <!-- Menu Item 4 -->
-                <div class="menu-item" data-category="breads">
-                    <div class="menu-item-image">
-                        <img src="images/menu/garlic-butter-naan.jpg" alt="Garlic Naan">
-                    </div>
-                    <div class="menu-item-info">
-                        <h3 class="menu-item-title">Garlic Naan</h3>
-                        <p class="menu-item-desc">Soft, leavened flatbread topped with garlic and fresh cilantro</p>
-                        <div class="menu-item-action">
-                            <a href="#order" class="btn">Order Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Menu Item 5 -->
-                <div class="menu-item" data-category="desserts">
-                    <div class="menu-item-image">
-                        <img src="images/menu/gulab_jamun.jpeg" alt="Gulab Jamun">
-                    </div>
-                    <div class="menu-item-info">
-                        <h3 class="menu-item-title">Gulab Jamun</h3>
-                        <p class="menu-item-desc">Soft milk solids dumplings soaked in rose-flavored sugar syrup</p>
-                        <div class="menu-item-action">
-                            <a href="#order" class="btn">Order Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Menu Item 6 -->
-                <div class="menu-item" data-category="starters">
-                    <div class="menu-item-image">
-                        <img src="images/menu/Onion-Bhaji-square.jpg" alt="Onion Bhaji">
-                    </div>
-                    <div class="menu-item-info">
-                        <h3 class="menu-item-title">Onion Bhaji</h3>
-                        <p class="menu-item-desc">Crispy deep-fried onion fritters seasoned with Indian spices</p>
-                        <div class="menu-item-action">
-                            <a href="#order" class="btn">Order Now</a>
-                        </div>
+            </div>
+            
+            <!-- Corporate Catering Form -->
+            <div id="corporate-catering" class="tab-content">
+                <div class="order-form-container" data-aos="fade-up">
+                    <p style="text-align: center; margin-bottom: 20px;">
+                        <span class="highlight-text">"Office mein Indian food ka maza!"</span><br>
+                        (Enjoy Indian food in your office!)
+                    </p>
+                    <p style="text-align: center; margin-bottom: 20px;">Elevate your corporate events and regular office meals with our special corporate packages.</p>
+                    <div class="google-form-container">
+                        <iframe id="corporateFormIframe" width="640" height="2000" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Order Form Section (Google Forms) -->
-    <section class="section order-form-section" id="order">
+    <!-- Feedback Section -->
+    <section class="section" id="feedback" style="background-color: var(--grey-color);">
         <div class="container">
-            <h2 class="section-title">Order Now</h2>
-            <div class="order-form-container">
-                <p style="text-align: center; margin-bottom: 20px;">Please fill out the form below to place your order. We accept payment on delivery or via online payment options.</p>
+            <h2 class="section-title" data-aos="fade-up">Share Your Feedback</h2>
+            <div class="order-form-container" data-aos="fade-up">
+                <p style="text-align: center; margin-bottom: 20px;">
+                    <span class="highlight-text">"Aapka feedback, hamari tarakki!"</span><br>
+                    (Your feedback is our progress!)
+                </p>
+                <p style="text-align: center; margin-bottom: 20px;">We value your opinions and suggestions. Please let us know how we can serve you better!</p>
                 <div class="google-form-container">
-                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSflCZKVtN2udJjMASuA0jdSHwDK7mVFAvuvpDO-j4FR_9XRQQ/viewform?embedded=true" width="640" height="3469" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                    <iframe id="feedbackFormIframe" width="640" height="1500" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
                 </div>
             </div>
         </div>
@@ -685,21 +961,21 @@
     <!-- Terms Section -->
     <section class="section" id="terms">
         <div class="container">
-            <h2 class="section-title">Terms & Conditions</h2>
-            <div class="terms-content">
-                <p>Please read the following terms and conditions carefully before placing an order with SpiceRoute:</p>
+            <h2 class="section-title" data-aos="fade-up">Terms & Conditions</h2>
+            <div class="terms-content" data-aos="fade-up">
+                <p>Please read the following terms and conditions carefully before placing an order with Must Tiffin:</p>
 
                 <h3>Ordering</h3>
                 <p>All orders must be placed through our website's order form. Orders will be confirmed via email or phone. Payment must be made at the time of delivery or through our online payment options.</p>
 
                 <h3>Delivery</h3>
-                <p>We deliver to selected areas within a 10-mile radius of our kitchen. Delivery times are subject to traffic conditions and order volume. We aim to deliver all orders within the specified time frame, but delays may occasionally occur.</p>
+                <p>We deliver to selected areas within Dublin. Delivery times are subject to traffic conditions and order volume. We aim to deliver all orders within the specified time frame, but delays may occasionally occur.</p>
 
                 <h3>Cancellation</h3>
                 <p>Orders can be cancelled up to 2 hours before the scheduled delivery time without any charge. Cancellations made less than 2 hours before delivery time will incur a 50% cancellation fee.</p>
 
                 <h3>Minimum Order</h3>
-                <p>Please note that we require a minimum of two meals per delivery as we cannot deliver just one meal.</p>
+                <p>Please note that we require a minimum order value for delivery service.</p>
 
                 <h3>Food Allergies</h3>
                 <p>Please inform us of any food allergies or dietary restrictions when placing your order. While we take all precautions to avoid cross-contamination, we cannot guarantee that our food is free from allergens.</p>
@@ -712,12 +988,12 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>SpiceRoute</h3>
-                    <p>Bringing the authentic taste of India to your doorstep since 2020.</p>
+                    <h3>Must Tiffin</h3>
+                    <p>Bringing the authentic taste of India to your doorstep in Dublin since 2023.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#" id="facebookLink"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" id="instagramLink"><i class="fab fa-instagram"></i></a>
+                        <a href="#" id="twitterLink"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
 
@@ -725,26 +1001,31 @@
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
                         <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
                         <li><a href="#about">About Us</a></li>
-                        <li><a href="#menu">Menu</a></li>
                         <li><a href="#order">Order Now</a></li>
+                        <li><a href="#feedback">Feedback</a></li>
+                        <li><a href="policy.html">Privacy Policy</a></li>
+                        <li><a href="tiffin-service.html">Tiffin Service</a></li>
+                        <li><a href="event-catering.html">Event Catering</a></li>
+                        <li><a href="corporate-catering.html">Corporate Catering</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-column">
                     <h3>Contact Info</h3>
                     <ul class="footer-links">
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Spice Street, Flavortown, FT 12345</li>
-                        <li><i class="fas fa-phone"></i> +353 894376007</li>
-                        <li><i class="fas fa-envelope"></i> info@spiceroute.com</li>
-                        <li><i class="fas fa-clock"></i> Mon-Sun: 11:00 AM - 10:00 PM</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span id="addressText">123 Spice Street, Dublin</span></li>
+                        <li><i class="fas fa-phone"></i> <span id="phoneText">+353 894376007</span></li>
+                        <li><i class="fas fa-envelope"></i> <span id="emailText">info@musttiffin.com</span></li>
+                        <li><i class="fas fa-clock"></i> <span id="hoursText">Mon-Sun: 11:00 AM - 10:00 PM</span></li>
                     </ul>
                 </div>
 
                 <div class="footer-column">
                     <h3>Newsletter</h3>
                     <p>Subscribe to our newsletter for exclusive offers and updates.</p>
-                    <form action="#" method="POST">
+                    <form action="#" method="POST" id="footerNewsletterForm">
                         <div class="form-group">
                             <input type="email" placeholder="Your Email" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px;" required>
                         </div>
@@ -756,7 +1037,7 @@
             </div>
 
             <div class="copyright">
-                <p>&copy; 2025 SpiceRoute. All Rights Reserved.</p>
+                <p>&copy; 2025 Must Tiffin. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -766,13 +1047,32 @@
         <a href="#order" class="floating-btn order-btn">
             <i class="fas fa-utensils"></i>
         </a>
-        <a href="tel:5551234567" class="floating-btn call-btn">
+        <a href="tel:+353894376007" class="floating-btn call-btn" id="callBtn">
             <i class="fas fa-phone"></i>
         </a>
     </div>
 
+    <!-- AOS Animation Library -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <!-- Settings File -->
+    <script src="settings.js"></script>
     <!-- JavaScript -->
     <script>
+        // Initialize AOS animation library
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            
+            // Load form links from settings
+            loadSettings();
+            
+            // Random cultural phrase for hero section
+            loadRandomPhrase();
+        });
+        
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
@@ -808,39 +1108,67 @@
             });
         });
 
-        // Menu Filter
-        const menuTabs = document.querySelectorAll('.tab-btn');
-        const menuItems = document.querySelectorAll('.menu-item');
+        // Form Tabs Functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
 
-        menuTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                // Remove active class from all tabs
-                menuTabs.forEach(t => t.classList.remove('active'));
-
-                // Add active class to clicked tab
-                tab.classList.add('active');
-
-                const category = tab.getAttribute('data-category');
-
-                // Filter menu items
-                menuItems.forEach(item => {
-                    if (category === 'all' || item.getAttribute('data-category') === category) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
             });
         });
-
-        // Adjust iframe height based on content
-        window.addEventListener('message', function(event) {
-            if (event.data.type === 'resize') {
-                const iframe = document.querySelector('.google-form-container iframe');
-                if (iframe) {
-                    iframe.style.height = event.data.height + 'px';
-                }
-            }
+        
+        // Function to load settings
+        function loadSettings() {
+            // Load Google form URLs
+            document.getElementById('tiffinFormIframe').src = siteSettings.forms.tiffinService;
+            document.getElementById('eventFormIframe').src = siteSettings.forms.eventCatering;
+            document.getElementById('corporateFormIframe').src = siteSettings.forms.corporateCatering;
+            document.getElementById('feedbackFormIframe').src = siteSettings.forms.feedback;
+            
+            // Load contact information
+            document.getElementById('phoneText').textContent = siteSettings.phone;
+            document.getElementById('addressText').textContent = siteSettings.address;
+            document.getElementById('emailText').textContent = siteSettings.email;
+            document.getElementById('hoursText').textContent = siteSettings.businessHours;
+            document.getElementById('callBtn').href = 'tel:' + siteSettings.phone;
+            
+            // Load social media links
+            document.getElementById('facebookLink').href = siteSettings.socialMedia.facebook;
+            document.getElementById('instagramLink').href = siteSettings.socialMedia.instagram;
+            document.getElementById('twitterLink').href = siteSettings.socialMedia.twitter;
+        }
+        
+        // Function to load random cultural phrase
+        function loadRandomPhrase() {
+            const allPhrases = [
+                ...siteSettings.culturalPhrases.hindi,
+                ...siteSettings.culturalPhrases.irish,
+                ...siteSettings.culturalPhrases.southIndian,
+                ...siteSettings.culturalPhrases.marathi,
+                ...siteSettings.culturalPhrases.bengali
+            ];
+            
+            const randomPhrase = allPhrases[Math.floor(Math.random() * allPhrases.length)];
+            document.getElementById('heroPhrase').textContent = randomPhrase;
+        }
+        
+        // Handle newsletter forms
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            window.open(siteSettings.forms.newsletter, '_blank');
+        });
+        
+        document.getElementById('footerNewsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            window.open(siteSettings.forms.newsletter, '_blank');
         });
     </script>
 </body>
