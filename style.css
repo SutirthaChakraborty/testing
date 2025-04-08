@@ -97,6 +97,58 @@ header {
     color: var(--primary-color);
 }
 
+/* Dropdown menu styles */
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 10px 0;
+    min-width: 180px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    list-style: none;
+    z-index: 100;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav-dropdown-menu li {
+    padding: 0;
+}
+
+.nav-dropdown-menu a {
+    display: block;
+    padding: 8px 20px;
+}
+
+.nav-dropdown-menu a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.nav-dropdown-menu a.active {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
 .mobile-menu-btn {
     display: none;
     background: none;
@@ -916,6 +968,20 @@ footer {
 
     .google-form-container {
         height: 1200px;
+    }
+
+    .nav-dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        padding-left: 20px;
+        display: none;
+    }
+    
+    .nav-dropdown.active .nav-dropdown-menu {
+        display: block;
     }
 }
 

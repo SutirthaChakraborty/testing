@@ -3,22 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - O'Desi Meals</title>
+    <title>Privacy Policy - Must Tiffin</title>
+    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f1faee;
-            padding: 20px;
-        }
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            color: #1d3557;
-        }
-        .container {
+        .policy-container {
             max-width: 800px;
             margin: 0 auto;
             background-color: white;
@@ -26,175 +22,394 @@
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            text-align: center;
+        .policy-section {
+            margin-bottom: 30px;
         }
-        .section-title:after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background-color: #f1a208;
-            margin: 15px auto 0;
-        }
-        p {
+        h2 {
+            color: var(--primary-color);
+            margin-top: 30px;
             margin-bottom: 15px;
         }
-        /* Navigation styles */
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
+        h3 {
+            color: var(--accent-color);
+            margin-top: 20px;
+            margin-bottom: 10px;
         }
-        .nav-buttons {
-            display: flex;
-            gap: 10px;
+        ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
         }
-        .nav-btn {
-            padding: 10px 20px;
-            background-color: #1d3557;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            font-size: 14px;
-        }
-        .back-btn {
-            background-color: #e63946;
-        }
-        .home-btn {
-            background-color: #1d3557;
-        }
-        .services-btn {
-            background-color: #457b9d;
+        .policy-container p {
+            margin-bottom: 15px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="section-title">Privacy Policy</h1>
-        
-        <div class="nav-container">
-            <div class="nav-buttons">
-                <a href="index.html" class="nav-btn home-btn"><i class="fas fa-home"></i> Home</a>
-                <button onclick="history.back()" class="nav-btn back-btn"><i class="fas fa-arrow-left"></i> Back</button>
-            </div>
-            <div class="nav-buttons">
-                <a href="tiffin-service.html" class="nav-btn services-btn">Tiffin Service</a>
-                <a href="event-catering.html" class="nav-btn services-btn">Event Catering</a>
-                <a href="corporate-catering.html" class="nav-btn services-btn">Corporate Catering</a>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo"><i class="fas fa-utensils"></i> Must Tiffin</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-dropdown-toggle">Our Offerings <i class="fas fa-chevron-down"></i></a>
+                        <ul class="nav-dropdown-menu">
+                            <li><a href="tiffin-service.html">Tiffin Service</a></li>
+                            <li><a href="event-catering.html">Event Catering</a></li>
+                            <li><a href="corporate-catering.html">Corporate Catering</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#testimonials">Testimonials</a></li>
+                    <li><a href="index.html#feedback">Feedback</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="policy.html" class="active">Policy</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="container">
+            <h1>Privacy Policy</h1>
+            <p class="cultural-phrase" id="policyBannerPhrase">Your privacy matters to us</p>
+        </div>
+    </section>
+
+    <!-- Policy Content -->
+    <section class="section">
+        <div class="container">
+            <div class="policy-container" data-aos="fade-up">
+                <p>Last Updated on April 9, 2025. This privacy policy is effective immediately.</p>
+
+                <p>Must Tiffin (the "Company" or "We"), takes your privacy seriously and are fully committed to keeping your information private. We are committed to protecting it through our compliance with this policy.</p>
+                
+                <p>The processing and sharing of personal information comes with significant rights on your part and significant responsibilities on ours.</p>
+                
+                <p>This Data Privacy Notice is provided to fulfil our obligations under the General Data Protection Regulation (GDPR), which requires greater accountability and transparency from organisations with regard to your personal information, and which gives you greater control over how we use it.</p>
+                
+                <p>Our Data Privacy Notice explains how and when we collect personal data from and about you, why we do so and how we treat this information. It also explains your rights in relation to the collection of personal information and how you can exercise those rights.</p>
+                
+                <h2>Data Privacy Notice</h2>
+                <div class="policy-section">
+                    <p>This is your guide to how personal data is managed by Must Tiffin. Please read it carefully. Data privacy is taken very seriously by the Company. It is important that you know exactly what we do with the personal information you and others provide to us, why we gather it and what it means to you. This document outlines our approach to Data Privacy to fulfil our obligations under the General Data Protection Regulation (2018) and the Data Protection Acts 1998 – 2018.</p>
+                    
+                    <p>We also welcome it as an opportunity to reassure you of the value we place on keeping your personal data secure, and of the strict procedures we apply to its use.</p>
+                    
+                    <p>As a Company, the majority of personal data we process are contact details (including names, addresses, phone numbers and email addresses).</p>
+                </div>
+                
+                <h3>How do we collect your data</h3>
+                <div class="policy-section">
+                    <p>You directly provide our company with the data we require for processing your request and order fulfilment. The data subject is the source of the data. We collect the data and process it when you:</p>
+                    <ul>
+                        <li>Place an order with us by filling up an online form and submit to Must Tiffin</li>
+                        <li>Share your details over Company page/s of Instagram & messages</li>
+                        <li>Share your details via Company page/s of Facebook & Facebook messenger</li>
+                        <li>Directly mail us to process a request</li>
+                        <li>Use WhatsApp (company number) to connect with us</li>
+                    </ul>
+                </div>
+                
+                <h3>What we do with this information</h3>
+                <div class="policy-section">
+                    <p>We collect this information for activities such as order placements, food delivery, tracking of food parcels that is delivered by drivers, payments, tracking of payments, email you invoices, customer service queries and operations management for order fulfilment.</p>
+                </div>
+                
+                <h3>Provision of information by a third party</h3>
+                <div class="policy-section">
+                    <p>We also receive personal information which we process from third parties such as driver for deliveries to cater to operational issues during order fulfilment.</p>
+                </div>
+                
+                <h3>Sharing of Personal Information</h3>
+                <div class="policy-section">
+                    <p>We also share personal information with third parties. For example, in order to deliver your order, we need to share your address and contact number for order fulfilment with the delivery driver.</p>
+                </div>
+                
+                <h3>Data protection principles</h3>
+                <div class="policy-section">
+                    <p>All processing of personal data must be conducted in accordance with the data protection principles set out in relevant legislation. Our policies and procedures are designed to ensure compliance with the following principles:</p>
+                    <ul>
+                        <li>Personal data must be processed lawfully, fairly and transparently.</li>
+                        <li>Lawful – the legal basis for processing personal data is normally based on relevant legislation. We are permitted by law to process information to administer our operations on delivery, payment and core function of payment and order fulfilment.</li>
+                        <li>Fairly – in order for processing to be fair, we have to make certain information available to you. This applies whether the personal data was obtained directly from you or from other sources. In our case, you are the source of the data. Must Tiffin is the processor of the data.</li>
+                        <li>Transparently – We will provide a Data Privacy Statement upfront whenever you are sharing personal information with the Department. We will ensure that the information provided is detailed and specific, and that the information is understandable and accessible.</li>
+                    </ul>
+                </div>
+                
+                <h3>Responsibilities under GDPR</h3>
+                <div class="policy-section">
+                    <p>Personal data can only be collected for specific, explicit and legitimate purposes. We will collect and process personal data only for the purposes for which it is collected. We will clearly state the purposes for which we collect and process your information.</p>
+                    
+                    <p>Personal data must be adequate, relevant and limited to what is necessary for processing - We will ensure that in designing new and current methods of data collection, whether online, forms or offline, that only the personal data required to establish your identity and provide the service will be processed.</p>
+                    
+                    <p>We will ensure that your data is accurate and complete - We need accurate and up-to-date data in order to ensure that the correct services are provided to the correct recipients. Where we have shared your data with a third party, we will update them as to any changes to your data, unless this is impossible or requires disproportionate effort.</p>
+                    
+                    <p>Personal data must be kept in a form such that the data subject can be identified only as long as is necessary for processing - We will implement appropriate policies and procedures to ensure that personal data is retained only for the minimum period required to provide the services in question. Once this period has passed, we may destroy the personal data, anonymise it or use any other appropriate method.</p>
+                    
+                    <p>Personal data must be processed in a manner that ensures appropriate security - We will implement appropriate technical and organisation measures to ensure that appropriate security of the processing of personal data is implemented. This includes encryption, restricted access to files and physically securing the data.</p>
+                    
+                    <p>Accountability for demonstrating compliance - We will ensure that we maintain adequate records of its processing and evidence that we have complied with this policy and related policies and procedures.</p>
+                </div>
+                
+                <h3>How do we store your data</h3>
+                <div class="policy-section">
+                    <p>Our Company securely stores your data in our computer systems (encrypted) and closed group shared drives (restricted access). Our company will keep your details (contact details including names, addresses, phone numbers and email addresses) for a period of 12 months. Once this period has expired, we will delete your data manually from our computer systems and restricted shared drives.</p>
+                </div>
+                
+                <h3>Transfers of personal data outside of the European Economic Area</h3>
+                <div class="policy-section">
+                    <p>Ordinarily we do not transfer your personal data outside of the European Economic Area (EEA) but where it is required to do so we will only transfer the data when an adequate level of protection to the treatment of your data is ensured.</p>
+                </div>
+                
+                <h3>Data Sharing</h3>
+                <div class="policy-section">
+                    <p>We may need to share your data with a third party on occasion to provide services.</p>
+                </div>
+                
+                <h3>Your Rights under GDPR</h3>
+                <div class="policy-section">
+                    <p>You have the following rights under GDPR:</p>
+                    <ul>
+                        <li>Right of access by the data subject -You have the right to request access to your personal data. This can be done by contacting the Company at the contact details below at info@musttiffin.com</li>
+                        <li>Right to withdraw Consent - Where we have collected your data on the basis of consent. You have the right to withdraw your consent at any time. This will affect our ability to provide you with services.</li>
+                        <li>Right to rectification - You have the right to have your personal data rectified where inaccuracies have been identified.</li>
+                        <li>Right to erasure (right to be forgotten) -Where we process personal data it is normally because there is a statutory basis for the processing. Where we receive a request from you looking to exercise your right of erasure then we will carry out an assessment of whether the data can be erased without affecting our ability to provide future services to you or fulfil statutory obligations.</li>
+                        <li>Right to restriction of processing - You can get us to restrict the processing of your personal information in certain circumstances. We will implement and maintain appropriate procedures to assess whether a request to restrict the processing of your data can be implemented. Where the request for restriction of processing is carried out then we will write to you to confirm the restriction has been implemented and when the restriction is lifted.</li>
+                        <li>Right to data portability - The Company processes personal data it collects because there is normally a legitimate interest for the processing (fulfilment of your order). Where the Company has collected personal data on data subjects by consent or by contract then the data subjects have a right to receive the data in electronic format to give to another data controller.</li>
+                        <li>Right to object - You have a right to object to the processing of your personal data in specific circumstances. Where such an objection is received, we will assess each case in its merits.</li>
+                    </ul>
+                </div>
+                
+                <h3>18 or Under</h3>
+                <div class="policy-section">
+                    <p>We are concerned to protect the privacy of children aged 18 or under. If you are aged 18 or under‚ you must get a parent/guardian's permission before you provide any personal information to us.</p>
+                    
+                    <p>If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us at our email: info@musttiffin.com or message us on our social media platforms.</p>
+                </div>
+                
+                <h3>Use of 'cookies'</h3>
+                <div class="policy-section">
+                    <p>Like many other websites the company website uses cookies. Cookies are small data files placed on your device when you browse online. They are standard across most websites and do not affect your device. Cookies help make websites work more efficiently and provide information to the owners of the site.</p>
+                </div>
+                
+                <h3>Why do we use cookies</h3>
+                <div class="policy-section">
+                    <p>Cookies enable us to monitor the number of people visiting our site. We do not use cookies to collect or record information about users' names, addresses or contact details. We may collect and store general information such as:</p>
+                    <ul>
+                        <li>your Internet domain;</li>
+                        <li>your IP address;</li>
+                        <li>the type of browser and operating system you used to access our site;</li>
+                        <li>the date and time you accessed our site;</li>
+                        <li>the pages you visited and documents downloaded;</li>
+                        <li>the number of bytes transmitted and received for each request.</li>
+                    </ul>
+                    <p>We use any information we collect for statistical and administrative purposes only.</p>
+                    <p>We examine this information to determine the traffic through the server, and to specific pages or applications, and in order to deliver better services. It is possible to switch off cookies by setting your browser preferences. Turning cookies off may result in a loss of functionality when using our website.</p>
+                </div>
+                
+                <h3>Links to other websites</h3>
+                <div class="policy-section">
+                    <p>Our website may contain links to other websites run by other organisations. This privacy notice applies only to our website‚ so we encourage you to read the privacy statements on the other websites you visit. We cannot be responsible for the privacy policies and practices of other sites even if you access those using links from our website.</p>
+                    <p>In addition, if you linked to our website from a third party site, we cannot be responsible for the privacy policies and practices of the owners and operators of that third party site and recommend that you check the policy of that third party site.</p>
+                </div>
+                
+                <h3>Changes to this notice</h3>
+                <div class="policy-section">
+                    <p>We will update this Data Privacy Notice from time to time. Any changes will be made available on this page. This Notice was last updated in April 2025.</p>
+                </div>
+                
+                <h3>Contact Details</h3>
+                <div class="policy-section">
+                    <p>For more information on this notice or any data protection matters, please contact us at info@musttiffin.com.</p>
+                </div>
+                
+                <h3>APPENDIX – Glossary of Terms</h3>
+                <div class="policy-section">
+                    <p>Definitions of words/phrases used in relation to the protection of personal data and referred to in the text of the policy;</p>
+                    <ul>
+                        <li>'Personal data' means any information relating to an identified or identifiable natural person ('data subject'); an identifiable natural person is someone who can be identified, directly or indirectly, in particular by using details such as a name, an identification number, location data, an online identifier or to one or more specific references to their physical, physiological, genetic, mental, economic, cultural or social identity.</li>
+                        <li>'Processing' means any operation or set of operations which is performed on personal data or on sets of personal data, whether or not by automated means, such as collection, recording, organisation, structuring, storage, adaptation or alteration, retrieval, consultation, use, disclosure by transmission, dissemination or otherwise making available, alignment or combination, restriction, erasure or destruction;</li>
+                        <li>'Access Request' – this is where a person makes a request to the organisation for the disclosure of their personal data under Article 15 of the GDPR.</li>
+                        <li>'Data Subject' – an individual who is the subject of personal data.</li>
+                        <li>'Controller' The body responsible for collecting and processing personal data. This could be alone or in conjunction with another body (a joint controller).</li>
+                        <li>'Processor' means a natural or legal person, public authority, agency or other body which processes personal data on behalf of the controller.</li>
+                    </ul>
+                </div>
+                
+                <h3>Company Address</h3>
+                <div class="policy-section">
+                    <p>Must Tiffin</p>
+                    <p id="companyAddress">123 Spice Street, Dublin</p>
+                </div>
             </div>
         </div>
-        
-        <p>Last Updated on October 19th 2021. This privacy policy is effective immediately.</p>
-        <p>O’Desi Meals, trading under Fallforgreen Ltd. (the “Company” or “We”), takes your privacy seriously and are fully committed to keeping your information private. We are committed to protecting it through our compliance with this policy.</p>
-        <p>The processing and sharing of personal information comes with significant rights on your part and significant responsibilities on ours.</p>
-        <p>This Data Privacy Notice is provided to fulfil our obligations under the General Data Protection Regulation (GDPR), effective from 25 May 2018, which requires greater accountability and transparency from organisations with regard to your personal information, and which gives you greater control over how we use it.</p>
-        <p>Our Data Privacy Notice explains how and when we collect personal data from and about you, why we do so and how we treat this information. It also explains your rights in relation to the collection of personal information and how you can exercise those rights.</p>
-        <h2>Data Privacy Notice</h2>
-        <p>This is your guide to how personal data is managed by O’Desi Meals. Please read it carefully. Data privacy is taken very seriously by the Company. It is important that you know exactly what we do with the personal information you and others provide to us, why we gather it and what it means to you. This document outlines our approach to Data Privacy to fulfil our obligations under the General Data Protection Regulation (2018) and the Data Protection Acts 1998 – 2018.</p>
-        <p>We also welcome it as an opportunity to reassure you of the value we place on keeping your personal data secure, and of the strict procedures we apply to its use.</p>
-        <p>As a Company, the majority of personal data we process are contact details (including names, addresses, phone numbers and email addresses).</p>
-        <h3>How do we collect your data</h3>
-        <p>You directly provide our company with the data we require for processing your request and order fulfilment. The data subject is the source of the data. We collect the data and process it when you:</p>
-        <ul>
-            <li>Place an order with us by filling up an online form and submit to O’Desi meals</li>
-            <li>Share your details over Company page/s of Instagram & messages</li>
-            <li>Share your details via Company page/s of Facebook & Facebook messenger</li>
-            <li>Directly mail us to process a request</li>
-            <li>Use WhatsApp (company number) to connect with us</li>
-        </ul>
-        <h3>What we do with this information</h3>
-        <p>We collect this information for activities such as order placements, food delivery, tracking of food parcels that is delivered by drivers, payments, tracking of payments, email you invoices, customer service queries and operations management for order fulfilment.</p>
-        <h3>Provision of information by a third party</h3>
-        <p>We also receive personal information which we process from third parties such as driver for deliveries to cater to operational issues during order fulfilment.</p>
-        <h3>Sharing of Personal Information</h3>
-        <p>We also share personal information with third parties. For example, in order to deliver your order, we need to share your address and contact number for order fulfilment with the delivery driver.</p>
-        <h3>Data protection principles</h3>
-        <p>All processing of personal data must be conducted in accordance with the data protection principles set out in relevant legislation. Our policies and procedures are designed to ensure compliance with the following principles:</p>
-        <ul>
-            <li>Personal data must be processed lawfully, fairly and transparently.</li>
-            <li>Lawful – the legal basis for processing personal data is normally based on relevant legislation. We are permitted by law to process information to administer our operations on delivery, payment and core function of payment and order fulfilment.</li>
-            <li>Fairly – in order for processing to be fair, we have to make certain information available to you. This applies whether the personal data was obtained directly from you or from other sources. In our case, you are the source of the personal data. O’Desi Meals is the processor of the data.</li>
-            <li>Transparently – We will provide a Data Privacy Statement upfront whenever you are sharing personal information with the Department. We will ensure that the information provided is detailed and specific, and that the information is understandable and accessible.</li>
-        </ul>
-        <h3>Responsibilities under GDPR</h3>
-        <p>Personal data can only be collected for specific, explicit and legitimate purposes. We will collect and process personal data only for the purposes for which it is collected. We will clearly state the purposes for which we collect and process your information.</p>
-        <p>Personal data must be adequate, relevant and limited to what is necessary for processing - We will ensure that in designing new and current methods of data collection, whether online, forms or offline, that only the personal data required to establish your identity and provide the service will be processed.</p>
-        <p>We will ensure that your data is accurate and complete - We need accurate and up-to-date data in order to ensure that the correct services are provided to the correct recipients. Where we have shared your data with a third party, we will update them as to any changes to your data, unless this is impossible or requires disproportionate effort.</p>
-        <p>Personal data must be kept in a form such that the data subject can be identified only as long as is necessary for processing - We will implement appropriate policies and procedures to ensure that personal data is retained only for the minimum period required to provide the services in question. Once this period has passed, we may destroy the personal data, anonymise it or use any other appropriate method.</p>
-        <p>Personal data must be processed in a manner that ensures appropriate security - We will implement appropriate technical and organisation measures to ensure that appropriate security of the processing of personal data is implemented. This includes encryption, restricted access to files and physically securing the data.</p>
-        <p>Accountability for demonstrating compliance - We will ensure that we maintain adequate records of its processing and evidence that we have complied with this policy and related policies and procedures.</p>
-        <h3>How do we store your data</h3>
-        <p>Our Company securely stores your data in our computer systems (encrypted) and closed group shared drives (restricted access). Our company will keep your details (contact details including names, addresses, phone numbers and email addresses) for a period of 12 months. Once this period has expired, we will delete your data manually from our computer systems and restricted shared drives.</p>
-        <h3>Transfers of personal data outside of the European Economic Area</h3>
-        <p>Ordinarily we do not transfer your personal data outside of the European Economic Area (EEA) but where it is required to do so we will only transfer the data when an adequate level of protection to the treatment of your data is ensured.</p>
-        <h3>Data Sharing</h3>
-        <p>We may need to share your data with a third party on occasion to provide services.</p>
-        <h3>Your Rights under GDPR</h3>
-        <p>You have the following rights under GDPR:</p>
-        <ul>
-            <li>Right of access by the data subject -You have the right to request access to your personal data. This can be done by contacting the Company at the contact details below at odesi.dublin@gmail.com</li>
-            <li>Right to withdraw Consent - Where we have collected your data on the basis of consent. You have the right to withdraw your consent at any time. This will affect our ability to provide you with services.</li>
-            <li>Right to rectification - You have the right to have your personal data rectified where inaccuracies have been identified.</li>
-            <li>Right to erasure (right to be forgotten) -Where we process personal data it is normally because there is a statutory basis for the processing. Where we receive a request from you looking to exercise your right of erasure then we will carry out an assessment of whether the data can be erased without affecting our ability to provide future services to you or fulfil statutory obligations.</li>
-            <li>Right to restriction of processing - You can get us to restrict the processing of your personal information in certain circumstances. We will implement and maintain appropriate procedures to assess whether a request to restrict the processing of your data can be implemented. Where the request for restriction of processing is carried out then we will write to you to confirm the restriction has been implemented and when the restriction is lifted.</li>
-            <li>Right to data portability - The Company processes personal data it collects because there is normally a legitimate interest for the processing (fulfilment of your order). Where the Company has collected personal data on data subjects by consent or by contract then the data subjects have a right to receive the data in electronic format to give to another data controller.</li>
-            <li>Right to object - You have a right to object to the processing of your personal data in specific circumstances. Where such an objection is received, we will assess each case in its merits.</li>
-        </ul>
-        <h3>18 or Under</h3>
-        <p>We are concerned to protect the privacy of children aged 18 or under. If you are aged 18 or under‚ you must get a parent/guardian’s permission before you provide any personal information to us.</p>
-        <p>If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us at our email: odesi.dublin@gmail.com or message us on Facebook (search Facebook- odesi.meals) or on Instagram (odesi_meals)</p>
-        <h3>Use of 'cookies'</h3>
-        <p>Like many other websites the company website https://www.odesimeals.com uses cookies. Cookies are small data files placed on your device when you browse online. They are standard across most websites and do not affect your device. Cookies help make websites work more efficiently and provide information to the owners of the site.</p>
-        <h3>Why do we use cookies</h3>
-        <p>Cookies enable us to monitor the number of people visiting our site. We do not use cookies to collect or record information about users’ names, addresses or contact details. We may collect and store general information such as:</p>
-        <ul>
-            <li>your Internet domain;</li>
-            <li>your IP address;</li>
-            <li>the type of browser and operating system you used to access our site;</li>
-            <li>the date and time you accessed our site;</li>
-            <li>the pages you visited and documents downloaded;</li>
-            <li>the number of bytes transmitted and received for each request.</li>
-        </ul>
-        <p>We use any information we collect for statistical and administrative purposes only.</p>
-        <p>We examine this information to determine the traffic through the server, and to specific pages or applications, and in order to deliver better services. It is possible to switch off cookies by setting your browser preferences. Turning cookies off may result in a loss of functionality when using our website.</p>
-        <h3>Links to other websites</h3>
-        <p>Our website may contain links to other websites run by other organisations. This privacy notice applies only to our website‚ so we encourage you to read the privacy statements on the other websites you visit. We cannot be responsible for the privacy policies and practices of other sites even if you access those using links from our website.</p>
-        <p>In addition, if you linked to our website from a third party site, we cannot be responsible for the privacy policies and practices of the owners and operators of that third party site and recommend that you check the policy of that third party site.</p>
-        <h3>Changes to this notice</h3>
-        <p>We will update this Data Privacy Notice from time to time. Any changes will be made available on this page. This Notice was last updated in October 2021.</p>
-        <h3>Contact Details</h3>
-        <p>For more information on this notice or any data protection matters, please contact us at odesi.dublin@gmail.com. If you have a specific query regarding a scheme or service offered by the Company, you should contact https://www.odesimeals.com. Contact details can be found on our website.</p>
-        <h3>APPENDIX – Glossary of Terms</h3>
-        <p>Definitions of words/phrases used in relation to the protection of personal data and referred to in the text of the policy;</p>
-        <ul>
-            <li>‘Personal data’ means any information relating to an identified or identifiable natural person (‘data subject’); an identifiable natural person is someone who can be identified, directly or indirectly, in particular by using details such as a name, an identification number, location data, an online identifier or to one or more specific references to their physical, physiological, genetic, mental, economic, cultural or social identity.</li>
-            <li>‘Processing’ means any operation or set of operations which is performed on personal data or on sets of personal data, whether or not by automated means, such as collection, recording, organisation, structuring, storage, adaptation or alteration, retrieval, consultation, use, disclosure by transmission, dissemination or otherwise making available, alignment or combination, restriction, erasure or destruction;</li>
-            <li>‘Access Request’ – this is where a person makes a request to the organisation for the disclosure of their personal data under Article 15 of the GDPR.</li>
-            <li>‘Data Subject’ – an individual who is the subject of personal data.</li>
-            <li>‘Controller’ The body responsible for collecting and processing personal data. This could be alone or in conjunction with another body (a joint controller).</li>
-            <li>‘Processor’ means a natural or legal person, public authority, agency or other body which processes personal data on behalf of the controller.</li>
-        </ul>
-        <h3>Company Address</h3>
-        <p>Fallforgreen Ltd.</p>
-        <p>Trading Name O'Desi Meals</p>
-        <p>278 Argyle, Custom House Harbour, IFSC, Dublin 1, Ireland</p>
-        
-        <div class="nav-container" style="margin-top: 40px; border-top: 1px solid #ddd; padding-top: 20px;">
-            <div class="nav-buttons">
-                <a href="index.html" class="nav-btn home-btn"><i class="fas fa-home"></i> Home</a>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Must Tiffin</h3>
+                    <p>Bringing the authentic taste of India to your doorstep in Dublin since 2023.</p>
+                    <div class="social-links">
+                        <a href="#" id="facebookLink"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" id="instagramLink"><i class="fab fa-instagram"></i></a>
+                        <a href="#" id="twitterLink"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="tiffin-service.html#order-form">Subscribe</a></li>
+                        <li><a href="index.html#feedback">Feedback</a></li>
+                        <li><a href="policy.html" class="active">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> <span id="addressText">123 Spice Street, Dublin</span></li>
+                        <li><i class="fas fa-phone"></i> <span id="phoneText">+353 894376007</span></li>
+                        <li><i class="fas fa-envelope"></i> <span id="emailText">info@musttiffin.com</span></li>
+                        <li><i class="fas fa-clock"></i> <span id="hoursText">Mon-Sun: 11:00 AM - 10:00 PM</span></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for exclusive offers and updates.</p>
+                    <form action="#" method="POST" id="footerNewsletterForm">
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px;" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="nav-buttons">
-                <a href="tiffin-service.html" class="nav-btn services-btn">Tiffin Service</a>
-                <a href="event-catering.html" class="nav-btn services-btn">Event Catering</a>
-                <a href="corporate-catering.html" class="nav-btn services-btn">Corporate Catering</a>
+
+            <div class="copyright">
+                <p>&copy; 2025 Must Tiffin. All Rights Reserved.</p>
             </div>
         </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-actions">
+        <a href="tiffin-service.html#order-form" class="floating-btn order-btn">
+            <i class="fas fa-utensils"></i>
+        </a>
+        <a href="tel:+353894376007" class="floating-btn call-btn" id="callBtn">
+            <i class="fas fa-phone"></i>
+        </a>
     </div>
+
+    <!-- AOS Animation Library -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <!-- Settings File -->
+    <script src="settings.js"></script>
+    <!-- JavaScript -->
+    <script>
+        // Initialize AOS animation library
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            
+            // Load settings from settings.js
+            loadSettings();
+        });
+        
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+        
+        // Function to load settings
+        function loadSettings() {
+            // Load contact information
+            document.getElementById('phoneText').textContent = siteSettings.phone;
+            document.getElementById('addressText').textContent = siteSettings.address;
+            document.getElementById('companyAddress').textContent = siteSettings.address;
+            document.getElementById('emailText').textContent = siteSettings.email;
+            document.getElementById('hoursText').textContent = siteSettings.businessHours;
+            document.getElementById('callBtn').href = 'tel:' + siteSettings.phone;
+            
+            // Load social media links
+            document.getElementById('facebookLink').href = siteSettings.socialMedia.facebook;
+            document.getElementById('instagramLink').href = siteSettings.socialMedia.instagram;
+            document.getElementById('twitterLink').href = siteSettings.socialMedia.twitter;
+            
+            // Load a random phrase if available
+            if (siteSettings.culturalPhrases && document.getElementById('policyBannerPhrase')) {
+                const allPhrases = [
+                    ...siteSettings.culturalPhrases.hindi,
+                    ...siteSettings.culturalPhrases.irish,
+                    ...siteSettings.culturalPhrases.southIndian,
+                    ...siteSettings.culturalPhrases.marathi,
+                    ...siteSettings.culturalPhrases.bengali
+                ];
+                
+                if (allPhrases.length > 0) {
+                    const randomPhrase = allPhrases[Math.floor(Math.random() * allPhrases.length)];
+                    document.getElementById('policyBannerPhrase').textContent = randomPhrase;
+                }
+            }
+        }
+        
+        // Handle newsletter form
+        document.getElementById('footerNewsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (siteSettings.forms && siteSettings.forms.newsletter) {
+                window.open(siteSettings.forms.newsletter, '_blank');
+            }
+        });
+    </script>
 </body>
 </html>
