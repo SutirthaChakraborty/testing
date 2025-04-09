@@ -365,6 +365,80 @@ header {
     font-size: 1.2rem;
 }
 
+/* Service Card Image Styling */
+.service-image-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+}
+
+.service-image {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.service-card:hover .service-image img {
+    transform: scale(1.1);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.service-image:hover .image-overlay {
+    opacity: 1;
+}
+
+.click-text {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 8px 15px;
+    border: 2px solid white;
+    border-radius: 4px;
+    transform: translateY(10px);
+    transition: transform 0.3s ease;
+}
+
+.service-image:hover .click-text {
+    transform: translateY(0);
+}
+
+/* Punch Line Styling */
+.punch-line {
+    font-family: 'Kalam', cursive;
+    font-style: italic;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+    line-height: 1.4;
+    min-height: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Pricing Cards */
 .pricing-cards {
     display: flex;
@@ -911,6 +985,67 @@ footer {
 
 .call-btn {
     background-color: var(--dark-color);
+}
+
+/* Sound Toggle Button */
+.sound-toggle {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 99;
+}
+
+.sound-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--accent2-color);
+    color: white;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, background-color 0.3s;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.sound-btn:hover {
+    transform: scale(1.1);
+    background-color: var(--accent-color);
+}
+
+.play-prompt {
+    position: fixed;
+    bottom: 90px;
+    left: 30px;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px 15px;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    animation: pulse 2s infinite;
+    display: flex;
+    align-items: center;
+}
+
+.play-prompt-btn {
+    background: none;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(78, 205, 196, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(78, 205, 196, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(78, 205, 196, 0); }
 }
 
 /* Responsive */

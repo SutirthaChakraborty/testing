@@ -351,6 +351,40 @@
             transform: rotate(5deg);
         }
 
+        .service-image-link {
+            text-decoration: none;
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-image:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .click-text {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .punch-line {
+            font-style: italic;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
         /* About Section */
         .section {
             padding: 80px 0;
@@ -630,6 +664,50 @@
             background-color: var(--dark-color);
         }
 
+        /* Sound Toggle Button */
+        .sound-toggle {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 99;
+        }
+
+        .sound-btn {
+            background-color: var(--accent2-color);
+        }
+
+        .play-prompt {
+            position: fixed;
+            bottom: 90px;
+            left: 30px;
+            z-index: 100;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px 15px;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+            display: flex;
+            align-items: center;
+        }
+
+        .play-prompt-btn {
+            background: none;
+            border: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--dark-color);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(78, 205, 196, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(78, 205, 196, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(78, 205, 196, 0); }
+        }
+
         /* Food decoration elements */
         .food-decoration {
             position: absolute;
@@ -836,12 +914,18 @@
                 <!-- Tiffin Service -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="cultural-tag">Ghar ka Khana!</div>
-                    <div class="service-image">
-                        <img src="images/menu/butter_chicken.jpeg" alt="Daily Tiffin Service">
-                    </div>
+                    <a href="tiffin-service.html" class="service-image-link">
+                        <div class="service-image">
+                            <img src="images/menu/daily-tiffin.png" alt="Daily Tiffin Service">
+                            <div class="image-overlay">
+                                <span class="click-text">Click to explore</span>
+                            </div>
+                        </div>
+                    </a>
                     <div class="service-content">
                         <h3 class="service-title">Daily Tiffin Service</h3>
                         <p class="service-desc">Homestyle meals delivered to your doorstep. Choose from weekly or monthly plans with a variety of regional Indian cuisines.</p>
+                        <p class="punch-line">"Why cook when you can Just Must? Your tummy will thank you!"</p>
                         <a href="tiffin-service.html" class="btn">Get Tiffin</a>
                     </div>
                 </div>
@@ -849,12 +933,18 @@
                 <!-- Event Catering -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="cultural-tag">Party Special!</div>
-                    <div class="service-image">
-                        <img src="images/menu/paneer-tikka-masala-recipe.jpg" alt="Event Catering">
-                    </div>
+                    <a href="event-catering.html" class="service-image-link">
+                        <div class="service-image">
+                            <img src="images/menu/event-catering.png" alt="Event Catering">
+                            <div class="image-overlay">
+                                <span class="click-text">Click to explore</span>
+                            </div>
+                        </div>
+                    </a>
                     <div class="service-content">
                         <h3 class="service-title">Event Catering</h3>
                         <p class="service-desc">Make your events memorable with our authentic Indian catering. Perfect for birthdays, anniversaries, or any celebration.</p>
+                        <p class="punch-line">"Your guests will forget the party, but never our curry!"</p>
                         <a href="event-catering.html" class="btn btn-secondary">Plan Event</a>
                     </div>
                 </div>
@@ -862,12 +952,18 @@
                 <!-- Corporate Catering -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="cultural-tag">Office Mein Maza!</div>
-                    <div class="service-image">
-                        <img src="images/menu/vegetable_samosa.jpg" alt="Corporate Catering">
-                    </div>
+                    <a href="corporate-catering.html" class="service-image-link">
+                        <div class="service-image">
+                            <img src="images/menu/corporate-catering.png" alt="Corporate Catering">
+                            <div class="image-overlay">
+                                <span class="click-text">Click to explore</span>
+                            </div>
+                        </div>
+                    </a>
                     <div class="service-content">
                         <h3 class="service-title">Corporate Catering</h3>
                         <p class="service-desc">Elevate your office meetings and events with our corporate catering packages. Special discounts for regular orders.</p>
+                        <p class="punch-line">"Boring meetings? Add our curry, watch productivity hurry!"</p>
                         <a href="corporate-catering.html" class="btn btn-tertiary">Corporate Menu</a>
                     </div>
                 </div>
@@ -1104,8 +1200,12 @@
 
     <!-- AOS Animation Library -->
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Settings File -->
     <script src="settings.js"></script>
+    <!-- Main JavaScript with audio functionality -->
+    <script src="main.js"></script>
     <!-- JavaScript -->
     <script>
         // Initialize AOS animation library
