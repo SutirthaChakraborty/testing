@@ -175,7 +175,9 @@
         .hero {
             position: relative;
             overflow: hidden;
-            height: 500px;
+            /* Changed from fixed height to aspect ratio based on 16:9 video */
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio (9/16 = 0.5625) */
             display: flex;
             align-items: center;
             text-align: center;
@@ -194,7 +196,7 @@
         .hero-video video {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain; /* Changed from cover to contain to show the full video */
         }
 
         .hero::after {
@@ -328,7 +330,7 @@
         }
 
         .service-image {
-            height: 200px;
+            height: 300px; /* Increased height to accommodate portrait images */
             overflow: hidden;
             position: relative;
         }
@@ -336,12 +338,12 @@
         .service-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain; /* Changed from cover to contain to show the full image */
             transition: transform 0.5s ease;
         }
 
         .service-card:hover .service-image img {
-            transform: scale(1.1);
+            transform: scale(1.05); /* Reduced scale factor for better visibility */
         }
 
         .service-content {
@@ -934,7 +936,7 @@
             <div class="services-container">
                 <!-- Tiffin Service -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="cultural-tag">Daily Delight!</div>
+                    <!-- <div class="cultural-tag">Daily Delight!</div> -->
                     <a href="#order" class="service-image-link" onclick="activateTab('tiffin-service')">
                         <div class="service-image">
                             <img src="images/menu/daily-tiffin.png" alt="Daily Tiffin Service">
@@ -945,7 +947,6 @@
                     </a>
                     <div class="service-content">
                         <h3 class="service-title">Tiffin Service</h3>
-                        <p class="service-desc">Our signature tiffin service brings homestyle Indian meals to your doorstep. Choose from weekly or monthly plans with rotating menus featuring regional specialties.</p>
                         <p class="punch-line">"Why cook when you can Just Must? Your tummy will thank you!"</p>
                         <a href="#order" class="btn" onclick="activateTab('tiffin-service')">Order Daily Tiffin</a>
                     </div>
@@ -953,7 +954,7 @@
 
                 <!-- Event Catering -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="cultural-tag">Party Perfect!</div>
+                    <!-- <div class="cultural-tag">Party Perfect!</div> -->
                     <a href="#order" class="service-image-link" onclick="activateTab('event-catering')">
                         <div class="service-image">
                             <img src="images/menu/event-catering.png" alt="Event Catering">
@@ -964,7 +965,6 @@
                     </a>
                     <div class="service-content">
                         <h3 class="service-title">Event Catering</h3>
-                        <p class="service-desc">Make your celebrations special with our custom event catering services. From intimate gatherings to large parties, we offer tailored menus to delight your guests.</p>
                         <p class="punch-line">"Your special day deserves special flavors!"</p>
                         <a href="#order" class="btn" onclick="activateTab('event-catering')">Plan Your Event</a>
                     </div>
@@ -972,7 +972,7 @@
 
                 <!-- Corporate Catering -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="cultural-tag">Office Favorite!</div>
+                    <!-- <div class="cultural-tag">Office Favorite!</div> -->
                     <a href="#order" class="service-image-link" onclick="activateTab('corporate-catering')">
                         <div class="service-image">
                             <img src="images/menu/corporate-catering.png" alt="Corporate Catering">
@@ -983,7 +983,6 @@
                     </a>
                     <div class="service-content">
                         <h3 class="service-title">Corporate Catering</h3>
-                        <p class="service-desc">Elevate your workplace meals and events with our corporate catering packages. Regular office lunches, team celebrations, or client meetings - we've got you covered.</p>
                         <p class="punch-line">"Happy teams are well-fed teams!"</p>
                         <a href="#order" class="btn" onclick="activateTab('corporate-catering')">Order Corporate Plans</a>
                     </div>
