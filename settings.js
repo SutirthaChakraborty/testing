@@ -24,8 +24,8 @@ const siteSettings = {
     // Google Form Links
     forms: {
         tiffinService: "https://docs.google.com/forms/d/e/1FAIpQLSflCZKVtN2udJjMASuA0jdSHwDK7mVFAvuvpDO-j4FR_9XRQQ/viewform?embedded=true",
-        eventCatering: "https://docs.google.com/forms/d/e/YOUR_EVENT_CATERING_FORM_ID/viewform?embedded=true",
-        corporateCatering: "https://docs.google.com/forms/d/e/YOUR_CORPORATE_CATERING_FORM_ID/viewform?embedded=true",
+        eventCatering: "https://docs.google.com/forms/d/e/1FAIpQLScQ7Mrkx0pP-iRheOinbQMOMdIto3Q1lUolh8V_P-rR9pm4hA/viewform?embedded=true",
+        corporateCatering: "https://docs.google.com/forms/d/e/1FAIpQLScAHr0Xafm0FwGGQks8wExeEtWgubIXp8Ft7mXIka5L2xOW1Q/viewform?embedded=true",
         feedback: "https://docs.google.com/forms/d/e/1FAIpQLScOrWK2MHyR0inwxsIUmest-WAa8aL72Rs8GRh4UDgWLw2iAg/viewform?embedded=true",
         newsletter: "https://docs.google.com/forms/d/e/YOUR_NEWSLETTER_FORM_ID/viewform?embedded=true"
     },
