@@ -26,7 +26,7 @@ const siteSettings = {
         tiffinService: "https://docs.google.com/forms/d/e/1FAIpQLSflCZKVtN2udJjMASuA0jdSHwDK7mVFAvuvpDO-j4FR_9XRQQ/viewform?embedded=true",
         eventCatering: "https://docs.google.com/forms/d/e/YOUR_EVENT_CATERING_FORM_ID/viewform?embedded=true",
         corporateCatering: "https://docs.google.com/forms/d/e/YOUR_CORPORATE_CATERING_FORM_ID/viewform?embedded=true",
-        feedback: "https://docs.google.com/forms/d/e/YOUR_FEEDBACK_FORM_ID/viewform?embedded=true",
+        feedback: "https://forms.gle/pbrp9bFBKnjGqeT76",
         newsletter: "https://docs.google.com/forms/d/e/YOUR_NEWSLETTER_FORM_ID/viewform?embedded=true"
     },
     
