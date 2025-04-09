@@ -35,7 +35,24 @@
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: var(--light-color);
+            background-image: url('images/background.png');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        /* Dark overlay for the entire page to tone down the background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* Dark overlay with 40% opacity */
+            z-index: -1; /* Place behind content */
+            pointer-events: none; /* Allow clicks to pass through */
         }
 
         h1, h2, h3, h4 {
@@ -191,6 +208,11 @@
             z-index: 1;
         }
 
+        /* This ensures the body overlay doesn't affect the hero video */
+        .hero-video::before {
+            display: none;
+        }
+        
         .hero-content {
             position: relative;
             z-index: 2; /* Ensure content is above the overlay */
@@ -266,7 +288,7 @@
         /* Services Section */
         .services-section {
             padding: 80px 0;
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.7); /* Increased opacity for better readability */
         }
 
         .section-title {
@@ -292,7 +314,7 @@
         }
 
         .service-card {
-            background-color: var(--light-color);
+            background-color: rgba(249, 247, 243, 0.8); /* Semi-transparent light color */
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -390,6 +412,10 @@
             padding: 80px 0;
         }
 
+        #about {
+            background-color: rgba(255, 255, 255, 0.85); /* Higher opacity background for better readability */
+        }
+
         .about-content {
             display: flex;
             align-items: center;
@@ -417,7 +443,7 @@
 
         /* Newsletter Section */
         .newsletter-section {
-            background-color: var(--accent-color);
+            background-color: rgba(255, 209, 102, 0.7); /* Semi-transparent accent color */
             padding: 60px 0;
             position: relative;
             overflow: hidden;
@@ -476,7 +502,7 @@
 
         /* Order Form Section */
         .order-form-section {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.7); /* Increased opacity for better readability */
             padding: 40px 0;
         }
 
@@ -500,21 +526,20 @@
         }
 
         /* Terms Section */
+        #terms {
+            background-color: rgba(255, 255, 255, 0.85); /* Higher opacity background for better readability */
+        }
+        
         .terms-content {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
-        .terms-content h3 {
-            margin-top: 25px;
-            margin-bottom: 15px;
-        }
-
         /* Testimonials */
         .testimonials-section {
-            background-color: var(--grey-color);
+            background-color: rgba(255, 255, 255, 0.7); /* Increased opacity for better readability */
             padding: 80px 0;
         }
 
@@ -524,10 +549,10 @@
         }
 
         .testimonial {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             margin-bottom: 30px;
             position: relative;
         }
@@ -786,6 +811,11 @@
             display: block;
         }
 
+        /* Feedback Section */
+        #feedback {
+            background-color: rgba(255, 255, 255, 0.7); /* Increased opacity for better readability */
+        }
+
         /* Responsive */
         @media (max-width: 992px) {
             .about-content {
@@ -852,16 +882,9 @@
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li class="nav-dropdown">
-                        <a href="#" class="nav-dropdown-toggle">Our Offerings <i class="fas fa-chevron-down"></i></a>
-                        <ul class="nav-dropdown-menu">
-                            <li><a href="tiffin-service.html">Tiffin Service</a></li>
-                            <li><a href="event-catering.html">Event Catering</a></li>
-                            <li><a href="corporate-catering.html">Corporate Catering</a></li>
-                        </ul>
-                    </li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#order">Order With Us</a></li>
                     <li><a href="#feedback">Feedback</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="policy.html">Policy</a></li>
@@ -893,9 +916,7 @@
                 <p class="cultural-phrase" id="heroPhrase">Ek baar khao, baar baar aao! (Eat once, come again and again!)</p>
                 <p>Experience the rich flavors and aromatic spices of India with our chef-crafted meals, delivered straight to your doorstep in Dublin</p>
                 <div class="btn-group">
-                    <a href="tiffin-service.html" class="btn">Daily Tiffin</a>
-                    <a href="event-catering.html" class="btn btn-secondary">Event Catering</a>
-                    <a href="corporate-catering.html" class="btn btn-tertiary">Corporate Meals</a>
+                    <a href="#order" class="btn">Order Now</a>
                 </div>
             </div>
         </div>
@@ -913,58 +934,58 @@
             <div class="services-container">
                 <!-- Tiffin Service -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="cultural-tag">Ghar ka Khana!</div>
-                    <a href="tiffin-service.html" class="service-image-link">
+                    <div class="cultural-tag">Daily Delight!</div>
+                    <a href="#order" class="service-image-link" onclick="activateTab('tiffin-service')">
                         <div class="service-image">
                             <img src="images/menu/daily-tiffin.png" alt="Daily Tiffin Service">
                             <div class="image-overlay">
-                                <span class="click-text">Click to explore</span>
+                                <span class="click-text">Order Now</span>
                             </div>
                         </div>
                     </a>
                     <div class="service-content">
-                        <h3 class="service-title">Daily Tiffin Service</h3>
-                        <p class="service-desc">Homestyle meals delivered to your doorstep. Choose from weekly or monthly plans with a variety of regional Indian cuisines.</p>
+                        <h3 class="service-title">Tiffin Service</h3>
+                        <p class="service-desc">Our signature tiffin service brings homestyle Indian meals to your doorstep. Choose from weekly or monthly plans with rotating menus featuring regional specialties.</p>
                         <p class="punch-line">"Why cook when you can Just Must? Your tummy will thank you!"</p>
-                        <a href="tiffin-service.html" class="btn">Get Tiffin</a>
+                        <a href="#order" class="btn" onclick="activateTab('tiffin-service')">Order Daily Tiffin</a>
                     </div>
                 </div>
-                
+
                 <!-- Event Catering -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="cultural-tag">Party Special!</div>
-                    <a href="event-catering.html" class="service-image-link">
+                    <div class="cultural-tag">Party Perfect!</div>
+                    <a href="#order" class="service-image-link" onclick="activateTab('event-catering')">
                         <div class="service-image">
                             <img src="images/menu/event-catering.png" alt="Event Catering">
                             <div class="image-overlay">
-                                <span class="click-text">Click to explore</span>
+                                <span class="click-text">Plan Your Event</span>
                             </div>
                         </div>
                     </a>
                     <div class="service-content">
                         <h3 class="service-title">Event Catering</h3>
-                        <p class="service-desc">Make your events memorable with our authentic Indian catering. Perfect for birthdays, anniversaries, or any celebration.</p>
-                        <p class="punch-line">"Your guests will forget the party, but never our curry!"</p>
-                        <a href="event-catering.html" class="btn btn-secondary">Plan Event</a>
+                        <p class="service-desc">Make your celebrations special with our custom event catering services. From intimate gatherings to large parties, we offer tailored menus to delight your guests.</p>
+                        <p class="punch-line">"Your special day deserves special flavors!"</p>
+                        <a href="#order" class="btn" onclick="activateTab('event-catering')">Plan Your Event</a>
                     </div>
                 </div>
-                
+
                 <!-- Corporate Catering -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="cultural-tag">Office Mein Maza!</div>
-                    <a href="corporate-catering.html" class="service-image-link">
+                    <div class="cultural-tag">Office Favorite!</div>
+                    <a href="#order" class="service-image-link" onclick="activateTab('corporate-catering')">
                         <div class="service-image">
                             <img src="images/menu/corporate-catering.png" alt="Corporate Catering">
                             <div class="image-overlay">
-                                <span class="click-text">Click to explore</span>
+                                <span class="click-text">Corporate Solutions</span>
                             </div>
                         </div>
                     </a>
                     <div class="service-content">
                         <h3 class="service-title">Corporate Catering</h3>
-                        <p class="service-desc">Elevate your office meetings and events with our corporate catering packages. Special discounts for regular orders.</p>
-                        <p class="punch-line">"Boring meetings? Add our curry, watch productivity hurry!"</p>
-                        <a href="corporate-catering.html" class="btn btn-tertiary">Corporate Menu</a>
+                        <p class="service-desc">Elevate your workplace meals and events with our corporate catering packages. Regular office lunches, team celebrations, or client meetings - we've got you covered.</p>
+                        <p class="punch-line">"Happy teams are well-fed teams!"</p>
+                        <a href="#order" class="btn" onclick="activateTab('corporate-catering')">Order Corporate Plans</a>
                     </div>
                 </div>
             </div>
@@ -1088,7 +1109,7 @@
     </section>
 
     <!-- Feedback Section -->
-    <section class="section" id="feedback" style="background-color: var(--grey-color);">
+    <section class="section" id="feedback" style="background-color: rgba(255, 255, 255, 0.7);">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Share Your Feedback</h2>
             <div class="order-form-container" data-aos="fade-up">
@@ -1152,9 +1173,6 @@
                         <li><a href="#order">Order Now</a></li>
                         <li><a href="#feedback">Feedback</a></li>
                         <li><a href="policy.html">Privacy Policy</a></li>
-                        <li><a href="tiffin-service.html">Tiffin Service</a></li>
-                        <li><a href="event-catering.html">Event Catering</a></li>
-                        <li><a href="corporate-catering.html">Corporate Catering</a></li>
                     </ul>
                 </div>
 
@@ -1223,6 +1241,17 @@
             loadRandomPhrase();
         });
         
+        // Function to activate a specific tab
+        function activateTab(tabId) {
+            // Remove active class from all buttons and contents
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            // Add active class to the corresponding button and content
+            document.querySelector(`.tab-button[data-tab="${tabId}"]`).classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+        
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
@@ -1264,14 +1293,8 @@
 
         tabButtons.forEach(button => {
             button.addEventListener('click', () => {
-                // Remove active class from all buttons and contents
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                tabContents.forEach(content => content.classList.remove('active'));
-                
-                // Add active class to clicked button and corresponding content
-                button.classList.add('active');
                 const tabId = button.getAttribute('data-tab');
-                document.getElementById(tabId).classList.add('active');
+                activateTab(tabId);
             });
         });
         

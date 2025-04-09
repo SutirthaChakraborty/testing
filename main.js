@@ -72,7 +72,10 @@ function showPlayPrompt() {
     prompt.className = 'play-prompt';
     prompt.innerHTML = `
         <button class="play-prompt-btn">
-            <i class="fas fa-music"></i> Experience the taste of India with music!
+            <span class="play-btn-3d">
+                <i class="fas fa-music"></i>
+            </span>
+            <span class="play-text">Experience the taste of India with music!</span>
         </button>
     `;
     document.body.appendChild(prompt);
@@ -82,6 +85,99 @@ function showPlayPrompt() {
         backgroundMusic.play();
         this.closest('.play-prompt').remove();
     });
+
+    // Add 3D button effect styles
+    const style = document.createElement('style');
+    style.textContent = `
+        .play-prompt {
+            position: fixed;
+            bottom: 90px;
+            left: 30px;
+            z-index: 100;
+            background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(240,240,245,0.9));
+            padding: 12px 20px;
+            border-radius: 30px;
+            box-shadow: 
+                0 10px 20px rgba(0, 0, 0, 0.1),
+                0 6px 6px rgba(0, 0, 0, 0.1),
+                inset 0 -2px 5px rgba(0, 0, 0, 0.05);
+            animation: float 3s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .play-prompt-btn {
+            background: none;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            font-weight: 600;
+            color: var(--dark-color);
+            padding: 0;
+        }
+
+        .play-prompt-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .play-prompt-btn:active {
+            transform: scale(0.98);
+        }
+
+        .play-btn-3d {
+            background: linear-gradient(145deg, var(--accent-color), var(--accent-color));
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            box-shadow: 
+                0 6px 10px rgba(0, 0, 0, 0.15),
+                inset 0 -3px 6px rgba(0, 0, 0, 0.2),
+                inset 0 3px 2px rgba(255, 255, 255, 0.5);
+            position: relative;
+            transform: translateZ(20px);
+            transition: all 0.3s;
+        }
+
+        .play-prompt-btn:hover .play-btn-3d {
+            box-shadow: 
+                0 8px 15px rgba(0, 0, 0, 0.2),
+                inset 0 -3px 6px rgba(0, 0, 0, 0.2),
+                inset 0 3px 2px rgba(255, 255, 255, 0.5);
+            transform: translateZ(25px) rotateY(-10deg);
+        }
+
+        .play-prompt-btn:active .play-btn-3d {
+            box-shadow: 
+                0 3px 6px rgba(0, 0, 0, 0.1),
+                inset 0 -2px 5px rgba(0, 0, 0, 0.2),
+                inset 0 2px 2px rgba(255, 255, 255, 0.2);
+            transform: translateZ(10px);
+        }
+
+        .play-text {
+            font-family: 'Kalam', cursive;
+            color: var(--primary-color);
+            font-size: 1.1em;
+            transform: translateZ(10px);
+            text-shadow: 1px 1px 1px rgba(255,255,255,0.7);
+        }
+    `;
+    document.head.appendChild(style);
 }
 
 /**
@@ -135,7 +231,7 @@ function addSoundToggleButton() {
     const soundBtn = document.createElement('button');
     soundBtn.className = 'sound-btn';
     soundBtn.id = 'soundToggle';
-    soundBtn.innerHTML = isMuted ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-up"></i>';
+    soundBtn.innerHTML = `<span class="sound-btn-3d">${isMuted ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-up"></i>'}</span>`;
     soundBtn.setAttribute('aria-label', isMuted ? 'Unmute background music' : 'Mute background music');
     soundBtn.title = isMuted ? 'Turn music on' : 'Turn music off';
     
@@ -147,6 +243,99 @@ function addSoundToggleButton() {
     
     // Add food animation to sound toggle button
     addSoundToggleAnimation(soundBtn);
+    
+    // Add 3D button styles
+    const style = document.createElement('style');
+    style.textContent = `
+        .sound-toggle {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 99;
+            perspective: 1000px;
+        }
+        
+        .sound-btn {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            position: relative;
+            transform-style: preserve-3d;
+            perspective: 800px;
+            transition: transform 0.2s;
+        }
+        
+        .sound-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .sound-btn:active {
+            transform: scale(0.95);
+        }
+        
+        .sound-btn-3d {
+            background: linear-gradient(145deg, #5bd6cf, #45b4ae);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 22px;
+            box-shadow: 
+                0 10px 20px rgba(0, 0, 0, 0.15),
+                0 6px 6px rgba(0, 0, 0, 0.1),
+                inset 0 -4px 8px rgba(0, 0, 0, 0.15),
+                inset 0 4px 8px rgba(255, 255, 255, 0.3);
+            position: relative;
+            transform: translateZ(0);
+            transition: all 0.3s;
+        }
+        
+        .sound-btn:hover .sound-btn-3d {
+            transform: translateZ(10px) rotateX(10deg) rotateY(-10deg);
+            box-shadow: 
+                0 15px 25px rgba(0, 0, 0, 0.2),
+                0 8px 10px rgba(0, 0, 0, 0.1),
+                inset 0 -4px 8px rgba(0, 0, 0, 0.2),
+                inset 0 4px 8px rgba(255, 255, 255, 0.4);
+        }
+        
+        .sound-btn:active .sound-btn-3d {
+            transform: translateZ(5px);
+            box-shadow: 
+                0 5px 10px rgba(0, 0, 0, 0.1),
+                0 3px 5px rgba(0, 0, 0, 0.1),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.2),
+                inset 0 2px 4px rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Creating the illusion of depth with a pseudo element */
+        .sound-btn-3d::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 6%;
+            width: 88%;
+            height: 15%;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 50%;
+            filter: blur(5px);
+            z-index: -1;
+        }
+        
+        .sound-btn:hover .sound-btn-3d::before {
+            filter: blur(8px);
+        }
+    `;
+    document.head.appendChild(style);
 }
 
 /**

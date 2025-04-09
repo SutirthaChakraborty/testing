@@ -27,9 +27,35 @@ body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: var(--light-color);
-    background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 50m-40 0a40 40 0 1 0 80 0a40 40 0 1 0 -80 0" fill="none" stroke="%23FFE0B2" stroke-width="0.5"/></svg>');
-    background-size: 100px 100px;
+    background-color: transparent !important;
+    background-image: url('images/background.png') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    position: relative;
+}
+
+/* Remove overlay that might be hiding the background image */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(to right, rgba(255,248,225,0.25), rgba(255,248,225,0.3));
+    z-index: -2;
+}
+
+/* Add colorful semi-transparent border */
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    border: 12px solid transparent;
+    border-image: linear-gradient(45deg, var(--primary-color), var(--accent-color), var(--accent2-color), var(--accent3-color));
+    border-image-slice: 1;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.7;
 }
 
 h1, h2, h3, h4 {
