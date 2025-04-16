@@ -7,18 +7,18 @@
 
 const siteSettings = {
     // Site Information
-    siteName: "Must Tiffin",
+    siteName: "Must Tiffins",
     tagline: "Authentic Indian Tiffin Service in Dublin",
     phone: "+353 894376007",
-    email: "info@musttiffin.com",
+    email: "info@musttiffins.com",
     address: "123 Spice Street, Flavortown, Dublin",
     businessHours: "Mon-Sun: 11:00 AM - 10:00 PM",
     
     // Social Media Links
     socialMedia: {
-        facebook: "https://facebook.com/musttiffin",
-        instagram: "https://instagram.com/musttiffin",
-        twitter: "https://twitter.com/musttiffin"
+        facebook: "https://facebook.com/musttiffins",
+        instagram: "https://instagram.com/musttiffins",
+        twitter: "https://twitter.com/musttiffins"
     },
     
     // Google Form Links
@@ -27,7 +27,7 @@ const siteSettings = {
         eventCatering: "https://docs.google.com/forms/d/e/1FAIpQLScQ7Mrkx0pP-iRheOinbQMOMdIto3Q1lUolh8V_P-rR9pm4hA/viewform?embedded=true",
         corporateCatering: "https://docs.google.com/forms/d/e/1FAIpQLScAHr0Xafm0FwGGQks8wExeEtWgubIXp8Ft7mXIka5L2xOW1Q/viewform?embedded=true",
         feedback: "https://docs.google.com/forms/d/e/1FAIpQLScOrWK2MHyR0inwxsIUmest-WAa8aL72Rs8GRh4UDgWLw2iAg/viewform?embedded=true",
-        newsletter: "https://docs.google.com/forms/d/e/YOUR_NEWSLETTER_FORM_ID/viewform?embedded=true"
+        newsletter: "https://docs.google.com/forms/d/e/1FAIpQLSc_-YUXXOYjIyV0Ln6jBZmhgSG8PwYIUemC7ZoEohQAnIdJ_w/viewform?embedded=true"
     },
     
     // Cultural Phrases
