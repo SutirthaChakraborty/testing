@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
     <!-- AOS Animation Library -->
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <!-- Removed style.css reference to prevent overrides -->
     <style>
         :root {
             --primary-color: #FF9052; /* Warm Orange - for primary buttons, CTA */
@@ -26,8 +26,80 @@
             --warning-color: #FF9052; /* Warm Orange - using for warnings */
         }
         
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-image: url('images/background1.png');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            position: relative;
             overflow-x: hidden; /* Prevent horizontal scrolling on mobile */
+        }
+
+        /* Dark overlay for the entire page to tone down the background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* Dark overlay with 40% opacity */
+            z-index: -1; /* Place behind content */
+            pointer-events: none; /* Allow clicks to pass through */
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--dark-color);
+        }
+        
+        /* Container for all sections */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .highlight-text {
+            font-family: 'Kalam', cursive;
+            color: var(--primary-color);
+            font-size: 1.1em;
+        }
+        
+        /* Header styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
         }
         
         .logo-image {
@@ -38,10 +110,45 @@
             object-fit: cover;
         }
         
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-links a.active {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--dark-color);
+            cursor: pointer;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
         .policy-container {
             max-width: 800px;
             margin: 0 auto;
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent background */
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -217,6 +324,139 @@
                 -webkit-text-size-adjust: 100%;
             }
         }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+            touch-action: manipulation; /* Optimization for touch */
+        }
+
+        .btn:hover {
+            background-color: #e63946;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-links a.active {
+            color: var(--accent-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        /* Floating Action Buttons */
+        .floating-actions {
+            position: fixed;
+            bottom: 20px; /* Reduced bottom margin for mobile */
+            right: 20px; /* Reduced right margin for mobile */
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 99;
+        }
+
+        .floating-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px; /* Slightly smaller on mobile */
+            height: 55px; /* Slightly smaller on mobile */
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+            -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .order-btn {
+            background-color: var(--primary-color);
+        }
     </style>
 </head>
 <body>
@@ -228,16 +468,9 @@
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="index.html#services">Services</a></li>
-                    <li class="nav-dropdown">
-                        <a href="#" class="nav-dropdown-toggle">Our Offerings <i class="fas fa-chevron-down"></i></a>
-                        <ul class="nav-dropdown-menu">
-                            <li><a href="tiffin-service.html">Tiffin Service</a></li>
-                            <li><a href="event-catering.html">Event Catering</a></li>
-                            <li><a href="corporate-catering.html">Corporate Catering</a></li>
-                        </ul>
-                    </li>
                     <li><a href="index.html#about">About</a></li>
                     <li><a href="index.html#testimonials">Testimonials</a></li>
+                    <li><a href="index.html#order">Order With Us</a></li>
                     <li><a href="index.html#feedback">Feedback</a></li>
                     <li><a href="index.html#contact">Contact</a></li>
                     <li><a href="policy.html" class="active">Policy</a></li>
@@ -494,6 +727,8 @@
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <!-- Settings File -->
     <script src="settings.js"></script>
+    <!-- Main JavaScript with audio functionality -->
+    <script src="main.js"></script>
     <!-- JavaScript -->
     <script>
         // Initialize AOS animation library
