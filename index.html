@@ -1221,19 +1221,7 @@
         </div>
     </section>
 
-    <!-- Newsletter Section -->
-    <section class="newsletter-section">
-        <div class="container">
-            <div class="newsletter-container" data-aos="zoom-in">
-                <h2 class="newsletter-title">Join Our Foodie Community</h2>
-                <p style="margin-bottom: 20px;">Sign up for our newsletter to get exclusive offers, new menu updates, and Indian cooking tips!</p>
-                <form class="newsletter-form" id="newsletterForm">
-                    <input type="email" placeholder="Your Email Address" required>
-                    <button type="submit" class="btn">Subscribe</button>
-                </form>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Order Forms Section with Tabs -->
     <section class="section order-form-section" id="order">
@@ -1305,6 +1293,20 @@
         </div>
     </section>
 
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-container" data-aos="zoom-in">
+                <h2 class="newsletter-title">Join Our Foodie Community</h2>
+                <p style="margin-bottom: 20px;">Sign up for our newsletter to get exclusive offers, new menu updates, and Indian cooking tips!</p>
+                <div class="google-form-container" style="height: 450px;">
+                    <iframe id="newsletterFormIframe" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- Terms Section -->
     <section class="section" id="terms">
         <div class="container">
@@ -1364,19 +1366,6 @@
                         <li><i class="fas fa-envelope"></i> <span id="emailText">info@musttiffin.com</span></li>
                         <li><i class="fas fa-clock"></i> <span id="hoursText">Mon-Sun: 11:00 AM - 10:00 PM</span></li>
                     </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h3>Newsletter</h3>
-                    <p>Subscribe to our newsletter for exclusive offers and updates.</p>
-                    <form action="#" method="POST" id="footerNewsletterForm">
-                        <div class="form-group">
-                            <input type="email" placeholder="Your Email" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px;" required>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn">Subscribe</button>
-                        </div>
-                    </form>
                 </div>
             </div>
 
@@ -1449,7 +1438,8 @@
                 'tiffinFormIframe': isMobile ? 1600 : isTablet ? 1200 : 800,
                 'eventFormIframe': isMobile ? 1600 : isTablet ? 1200 : 800,
                 'corporateFormIframe': isMobile ? 1600 : isTablet ? 1200 : 800,
-                'feedbackFormIframe': isMobile ? 1500 : isTablet ? 1200 : 800
+                'feedbackFormIframe': isMobile ? 1500 : isTablet ? 1200 : 800,
+                'newsletterFormIframe': isMobile ? 450 : isTablet ? 450 : 450
             };
             
             Object.keys(forms).forEach(formId => {
@@ -1550,6 +1540,7 @@
             document.getElementById('eventFormIframe').src = siteSettings.forms.eventCatering;
             document.getElementById('corporateFormIframe').src = siteSettings.forms.corporateCatering;
             document.getElementById('feedbackFormIframe').src = siteSettings.forms.feedback;
+            document.getElementById('newsletterFormIframe').src = siteSettings.forms.newsletter;
             
             // Load contact information
             document.getElementById('phoneText').textContent = siteSettings.phone;
