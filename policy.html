@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Privacy Policy - Must Tiffin</title>
+    <title>Privacy Policy - Must Tiffins</title>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
@@ -14,8 +14,28 @@
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
+        :root {
+            --primary-color: #FF9052; /* Warm Orange - for primary buttons, CTA */
+            --accent-color: #FFDD57; /* Sunrise Yellow - for highlights, section headings */
+            --accent2-color: #90BE6D; /* Fresh Green - for secondary accent elements */
+            --dark-color: #2F4858; /* Deep blue - keeping original */
+            --light-color: #F9F7F3; /* Off-white - keeping original */
+            --grey-color: #f8f9fa;
+            --success-color: #90BE6D; /* Fresh Green - using for success messages */
+            --info-color: #118AB2; /* Blue - keeping original */
+            --warning-color: #FF9052; /* Warm Orange - using for warnings */
+        }
+        
         body {
             overflow-x: hidden; /* Prevent horizontal scrolling on mobile */
+        }
+        
+        .logo-image {
+            height: 40px;
+            width: auto;
+            margin-right: 10px;
+            border-radius: 4px;
+            object-fit: cover;
         }
         
         .policy-container {
@@ -204,7 +224,7 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="index.html" class="logo"><i class="fas fa-utensils"></i> Must Tiffin</a>
+                <a href="index.html" class="logo" onclick="toggleMute(); return false;" id="logoAudioToggle" title="Click to play/pause music"><img src="images/logo.jpeg" alt="Must Tiffins Logo" class="logo-image"> Must Tiffins</a>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="index.html#services">Services</a></li>
@@ -243,7 +263,7 @@
             <div class="policy-container" data-aos="fade-up">
                 <p>Last Updated on April 9, 2025. This privacy policy is effective immediately.</p>
 
-                <p>Must Tiffin (the "Company" or "We"), takes your privacy seriously and are fully committed to keeping your information private. We are committed to protecting it through our compliance with this policy.</p>
+                <p>Must Tiffins (the "Company" or "We"), takes your privacy seriously and are fully committed to keeping your information private. We are committed to protecting it through our compliance with this policy.</p>
                 
                 <p>The processing and sharing of personal information comes with significant rights on your part and significant responsibilities on ours.</p>
                 
@@ -253,7 +273,7 @@
                 
                 <h2>Data Privacy Notice</h2>
                 <div class="policy-section">
-                    <p>This is your guide to how personal data is managed by Must Tiffin. Please read it carefully. Data privacy is taken very seriously by the Company. It is important that you know exactly what we do with the personal information you and others provide to us, why we gather it and what it means to you. This document outlines our approach to Data Privacy to fulfil our obligations under the General Data Protection Regulation (2018) and the Data Protection Acts 1998 – 2018.</p>
+                    <p>This is your guide to how personal data is managed by Must Tiffins. Please read it carefully. Data privacy is taken very seriously by the Company. It is important that you know exactly what we do with the personal information you and others provide to us, why we gather it and what it means to you. This document outlines our approach to Data Privacy to fulfil our obligations under the General Data Protection Regulation (2018) and the Data Protection Acts 1998 – 2018.</p>
                     
                     <p>We also welcome it as an opportunity to reassure you of the value we place on keeping your personal data secure, and of the strict procedures we apply to its use.</p>
                     
@@ -264,7 +284,7 @@
                 <div class="policy-section">
                     <p>You directly provide our company with the data we require for processing your request and order fulfilment. The data subject is the source of the data. We collect the data and process it when you:</p>
                     <ul>
-                        <li>Place an order with us by filling up an online form and submit to Must Tiffin</li>
+                        <li>Place an order with us by filling up an online form and submit to Must Tiffins</li>
                         <li>Share your details over Company page/s of Instagram & messages</li>
                         <li>Share your details via Company page/s of Facebook & Facebook messenger</li>
                         <li>Directly mail us to process a request</li>
@@ -293,7 +313,7 @@
                     <ul>
                         <li>Personal data must be processed lawfully, fairly and transparently.</li>
                         <li>Lawful – the legal basis for processing personal data is normally based on relevant legislation. We are permitted by law to process information to administer our operations on delivery, payment and core function of payment and order fulfilment.</li>
-                        <li>Fairly – in order for processing to be fair, we have to make certain information available to you. This applies whether the personal data was obtained directly from you or from other sources. In our case, you are the source of the data. Must Tiffin is the processor of the data.</li>
+                        <li>Fairly – in order for processing to be fair, we have to make certain information available to you. This applies whether the personal data was obtained directly from you or from other sources. In our case, you are the source of the data. Must Tiffins is the processor of the data.</li>
                         <li>Transparently – We will provide a Data Privacy Statement upfront whenever you are sharing personal information with the Department. We will ensure that the information provided is detailed and specific, and that the information is understandable and accessible.</li>
                     </ul>
                 </div>
@@ -400,7 +420,7 @@
                 
                 <h3>Company Address</h3>
                 <div class="policy-section">
-                    <p>Must Tiffin</p>
+                    <p>Must Tiffins</p>
                     <p id="companyAddress">123 Spice Street, Dublin</p>
                 </div>
             </div>
@@ -412,7 +432,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>Must Tiffin</h3>
+                    <h3>Must Tiffins</h3>
                     <p>Bringing the authentic taste of India to your doorstep in Dublin since 2023.</p>
                     <div class="social-links">
                         <a href="#" id="facebookLink"><i class="fab fa-facebook-f"></i></a>
@@ -458,7 +478,7 @@
             </div>
 
             <div class="copyright">
-                <p>&copy; 2025 Must Tiffin. All Rights Reserved.</p>
+                <p>&copy; 2025 Must Tiffins. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -467,9 +487,6 @@
     <div class="floating-actions">
         <a href="tiffin-service.html#order-form" class="floating-btn order-btn">
             <i class="fas fa-utensils"></i>
-        </a>
-        <a href="tel:+353894376007" class="floating-btn call-btn" id="callBtn">
-            <i class="fas fa-phone"></i>
         </a>
     </div>
 

@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Must Tiffin - Authentic Indian Tiffin Service in Dublin</title>
+    <meta name="viewport" content="width=width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Must Tiffins - Authentic Indian Tiffin Service in Dublin</title>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
@@ -14,15 +14,15 @@
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #FF6B6B; /* Vibrant red */
-            --accent-color: #FFD166; /* Bold yellow */
-            --accent2-color: #4ECDC4; /* Turquoise */
-            --dark-color: #2F4858; /* Deep blue */
-            --light-color: #F9F7F3; /* Off-white */
+            --primary-color: #FF9052; /* Warm Orange - for primary buttons, CTA */
+            --accent-color: #FFDD57; /* Sunrise Yellow - for highlights, section headings */
+            --accent2-color: #90BE6D; /* Fresh Green - for secondary accent elements */
+            --dark-color: #2F4858; /* Deep blue - keeping original */
+            --light-color: #F9F7F3; /* Off-white - keeping original */
             --grey-color: #f8f9fa;
-            --success-color: #06D6A0; /* Green */
-            --info-color: #118AB2; /* Blue */
-            --warning-color: #FFA62B; /* Orange */
+            --success-color: #90BE6D; /* Fresh Green - using for success messages */
+            --info-color: #118AB2; /* Blue - keeping original */
+            --warning-color: #FF9052; /* Warm Orange - using for warnings */
         }
 
         * {
@@ -35,7 +35,7 @@
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             color: #333;
-            background-image: url('images/background.png');
+            background-image: url('images/background1.png');
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
@@ -100,9 +100,12 @@
             align-items: center;
         }
 
-        .logo i {
+        .logo-image {
+            height: 40px;
+            width: auto;
             margin-right: 10px;
-            font-size: 28px;
+            border-radius: 4px;
+            object-fit: cover;
         }
 
         .nav-links {
@@ -1055,7 +1058,7 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="index.html" class="logo"><i class="fas fa-utensils"></i> Must Tiffin</a>
+                <a href="index.html" class="logo" onclick="toggleMute(); return false;" id="logoAudioToggle" title="Click to play/pause music"><img src="images/logo.jpeg" alt="Must Tiffins Logo" class="logo-image"> Must Tiffins</a>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="#services">Services</a></li>
@@ -1083,13 +1086,13 @@
             </video>
         </div>
         <!-- Food decoration elements -->
-        <i class="fas fa-pepper-hot food-decoration spice1" style="color: #FF6B6B;"></i>
-        <i class="fas fa-leaf food-decoration spice2" style="color: #4ECDC4;"></i>
-        <i class="fas fa-mortar-pestle food-decoration spice3" style="color: #FFD166;"></i>
+        <i class="fas fa-pepper-hot food-decoration spice1" style="color: #FF9052;"></i>
+        <i class="fas fa-leaf food-decoration spice2" style="color: #90BE6D;"></i>
+        <i class="fas fa-mortar-pestle food-decoration spice3" style="color: #FFDD57;"></i>
         
         <div class="container">
             <div class="hero-content"></div>
-                <h1>Must Tiffin - दिल से तिफ़िन!</h1>
+                <h1>Must Tiffins - दिल से तिफ़िन!</h1>
                 <p class="cultural-phrase" id="heroPhrase">Ek baar khao, baar baar aao! (Eat once, come again and again!)</p>
                 <p>Experience the rich flavors and aromatic spices of India with our chef-crafted meals, delivered straight to your doorstep in Dublin</p>
                 <div class="btn-group">
@@ -1111,10 +1114,11 @@
             <div class="services-container">
                 <!-- Tiffin Service -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                    <!-- <div class="cultural-tag">Daily Delight!</div> -->
                     <a href="#order" class="service-image-link" onclick="activateTab('tiffin-service')">
                         <div class="service-image">
-                            <img src="images/menu/daily-tiffin.png" alt="Daily Tiffin Service">
+                            <div style="height: 100%; width: 100%; background-color: #FFE8D6; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-utensils fa-3x" style="color: #FF9052;"></i>
+                            </div>
                             <div class="image-overlay">
                                 <span class="click-text">Order Now</span>
                             </div>
@@ -1129,10 +1133,11 @@
 
                 <!-- Event Catering -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                    <!-- <div class="cultural-tag">Party Perfect!</div> -->
                     <a href="#order" class="service-image-link" onclick="activateTab('event-catering')">
                         <div class="service-image">
-                            <img src="images/menu/event-catering.png" alt="Event Catering">
+                            <div style="height: 100%; width: 100%; background-color: #FFE8D6; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-glass-cheers fa-3x" style="color: #FF9052;"></i>
+                            </div>
                             <div class="image-overlay">
                                 <span class="click-text">Plan Your Event</span>
                             </div>
@@ -1147,10 +1152,11 @@
 
                 <!-- Corporate Catering -->
                 <div class="service-card" data-aos="fade-up" data-aos-delay="400">
-                    <!-- <div class="cultural-tag">Office Favorite!</div> -->
                     <a href="#order" class="service-image-link" onclick="activateTab('corporate-catering')">
                         <div class="service-image">
-                            <img src="images/menu/corporate-catering.png" alt="Corporate Catering">
+                            <div style="height: 100%; width: 100%; background-color: #FFE8D6; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-briefcase fa-3x" style="color: #FF9052;"></i>
+                            </div>
                             <div class="image-overlay">
                                 <span class="click-text">Corporate Solutions</span>
                             </div>
@@ -1173,7 +1179,7 @@
             <div class="about-content">
                 <div class="about-text" data-aos="fade-right">
                     <p><span class="highlight-text">"Every bite tells our story!"</span></p>
-                    <p>At Must Tiffin, we are passionate about bringing the authentic taste of India to Dublin. Our journey began with a simple desire to share the rich culinary heritage of India with food enthusiasts around the city.</p>
+                    <p>At Must Tiffins, we are passionate about bringing the authentic taste of India to Dublin. Our journey began with a simple desire to share the rich culinary heritage of India with food enthusiasts around the city.</p>
                     <p>Every dish is prepared with love, using traditional recipes passed down through generations, and made with the freshest locally-sourced ingredients and aromatic spices imported directly from various regions of India.</p>
                     <p>We take pride in offering a diverse menu that represents the various culinary traditions of India, from the robust flavors of the North to the subtle and delicate tastes of the South.</p>
                     <p><span class="highlight-text">"Hamara mission - Happy customers with happy tummies!"</span></p>
@@ -1195,19 +1201,19 @@
             <h2 class="section-title" data-aos="fade-up">What Our Customers Say</h2>
             <div class="testimonials-container">
                 <div class="testimonial" data-aos="fade-up">
-                    <p class="testimonial-text">"Aisa swad maine India ke bahar kabhi nahi chakha! Must Tiffin has brought the authentic taste of my mother's kitchen right to my Dublin doorstep."</p>
+                    <p class="testimonial-text">"Aisa swad maine India ke bahar kabhi nahi chakha! Must Tiffins has brought the authentic taste of my mother's kitchen right to my Dublin doorstep."</p>
                     <span class="testimonial-author">Rahul Sharma</span>
                     <span class="testimonial-role">Regular Customer</span>
                 </div>
                 
                 <div class="testimonial" data-aos="fade-up" data-aos-delay="100">
-                    <p class="testimonial-text">"I never thought I'd fall in love with Indian food until I tried Must Tiffin. Now I'm addicted to their butter chicken and naan! It's Dublin's hidden gem for sure."</p>
+                    <p class="testimonial-text">"I never thought I'd fall in love with Indian food until I tried Must Tiffins. Now I'm addicted to their butter chicken and naan! It's Dublin's hidden gem for sure."</p>
                     <span class="testimonial-author">Sarah O'Connor</span>
                     <span class="testimonial-role">Monthly Subscription</span>
                 </div>
                 
                 <div class="testimonial" data-aos="fade-up" data-aos-delay="200">
-                    <p class="testimonial-text">"Our office team is absolutely obsessed with Must Tiffin's corporate catering. 'Food coma Fridays' have become our weekly tradition!"</p>
+                    <p class="testimonial-text">"Our office team is absolutely obsessed with Must Tiffins' corporate catering. 'Food coma Fridays' have become our weekly tradition!"</p>
                     <span class="testimonial-author">Mark Johnson</span>
                     <span class="testimonial-role">Corporate Client</span>
                 </div>
@@ -1304,7 +1310,7 @@
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Terms & Conditions</h2>
             <div class="terms-content" data-aos="fade-up">
-                <p>Please read the following terms and conditions carefully before placing an order with Must Tiffin:</p>
+                <p>Please read the following terms and conditions carefully before placing an order with Must Tiffins:</p>
 
                 <h3>Ordering</h3>
                 <p>All orders must be placed through our website's order form. Orders will be confirmed via email or phone. Payment must be made at the time of delivery or through our online payment options.</p>
@@ -1329,7 +1335,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>Must Tiffin</h3>
+                    <h3>Must Tiffins</h3>
                     <p>Bringing the authentic taste of India to your doorstep in Dublin since 2023.</p>
                     <div class="social-links">
                         <a href="#" id="facebookLink"><i class="fab fa-facebook-f"></i></a>
@@ -1375,7 +1381,7 @@
             </div>
 
             <div class="copyright">
-                <p>&copy; 2025 Must Tiffin. All Rights Reserved.</p>
+                <p>&copy; 2025 Must Tiffins. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -1384,9 +1390,6 @@
     <div class="floating-actions">
         <a href="#order" class="floating-btn order-btn">
             <i class="fas fa-utensils"></i>
-        </a>
-        <a href="tel:+353894376007" class="floating-btn call-btn" id="callBtn">
-            <i class="fas fa-phone"></i>
         </a>
     </div>
 
@@ -1419,12 +1422,12 @@
             const heroVideo = document.querySelector('.hero-video video');
             if (heroVideo) {
                 // Add poster for better mobile experience while video loads
-                heroVideo.setAttribute('poster', 'images/background.png');
+                heroVideo.setAttribute('poster', 'images/background1.png');
                 // Handle video loading errors
                 heroVideo.addEventListener('error', function(e) {
                     console.error('Video loading error:', e);
                     // Apply fallback background if video fails
-                    document.querySelector('.hero-video').style.backgroundImage = 'url("images/background.png")';
+                    document.querySelector('.hero-video').style.backgroundImage = 'url("images/background1.png")';
                     document.querySelector('.hero-video').style.backgroundSize = 'cover';
                 });
             }

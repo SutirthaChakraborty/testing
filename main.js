@@ -12,8 +12,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize background music
     initBackgroundMusic();
 
-    // Add sound toggle button to the page
-    addSoundToggleButton();
+    // Logo animation for sound toggle indication
+    addLogoSoundAnimation();
+    
+    // Load mute preference from localStorage if available
+    const savedMuteState = localStorage.getItem('musicMuted');
+    if (savedMuteState !== null) {
+        isMuted = savedMuteState === 'true';
+        updateLogoAudioState();
+    }
 });
 
 // Play music as soon as possible
@@ -83,6 +90,8 @@ function showPlayPrompt() {
     // Add event listener to play music on click
     prompt.querySelector('button').addEventListener('click', function() {
         backgroundMusic.play();
+        isMuted = false;
+        updateLogoAudioState();
         this.closest('.play-prompt').remove();
     });
 
@@ -201,200 +210,12 @@ function checkAndPlayMusic() {
 }
 
 /**
- * Toggles the background music on/off
- */
-function toggleSound() {
-    isMuted = !isMuted;
-    
-    if (isMuted) {
-        backgroundMusic.pause();
-        document.getElementById('soundToggleBtn').innerHTML = '<i class="fas fa-volume-mute"></i>';
-        document.getElementById('soundToggleBtn').setAttribute('title', 'Unmute Music');
-    } else {
-        if (isIndexPage()) {
-            backgroundMusic.play();
-        }
-        document.getElementById('soundToggleBtn').innerHTML = '<i class="fas fa-volume-up"></i>';
-        document.getElementById('soundToggleBtn').setAttribute('title', 'Mute Music');
-    }
-}
-
-/**
- * Creates a floating button to toggle sound
- */
-function addSoundToggleButton() {
-    // Create the sound toggle button
-    const soundToggle = document.createElement('div');
-    soundToggle.className = 'sound-toggle';
-    
-    // Create the button with initial state
-    const soundBtn = document.createElement('button');
-    soundBtn.className = 'sound-btn';
-    soundBtn.id = 'soundToggle';
-    soundBtn.innerHTML = `<span class="sound-btn-3d">${isMuted ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-up"></i>'}</span>`;
-    soundBtn.setAttribute('aria-label', isMuted ? 'Unmute background music' : 'Mute background music');
-    soundBtn.title = isMuted ? 'Turn music on' : 'Turn music off';
-    
-    soundToggle.appendChild(soundBtn);
-    document.body.appendChild(soundToggle);
-    
-    // Add click event to toggle mute/unmute
-    soundBtn.addEventListener('click', toggleMute);
-    
-    // Add food animation to sound toggle button
-    addSoundToggleAnimation(soundBtn);
-    
-    // Add 3D button styles
-    const style = document.createElement('style');
-    style.textContent = `
-        .sound-toggle {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            z-index: 99;
-            perspective: 1000px;
-        }
-        
-        .sound-btn {
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: none;
-            border: none;
-            padding: 0;
-            cursor: pointer;
-            position: relative;
-            transform-style: preserve-3d;
-            perspective: 800px;
-            transition: transform 0.2s;
-        }
-        
-        .sound-btn:hover {
-            transform: scale(1.05);
-        }
-        
-        .sound-btn:active {
-            transform: scale(0.95);
-        }
-        
-        .sound-btn-3d {
-            background: linear-gradient(145deg, #5bd6cf, #45b4ae);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 22px;
-            box-shadow: 
-                0 10px 20px rgba(0, 0, 0, 0.15),
-                0 6px 6px rgba(0, 0, 0, 0.1),
-                inset 0 -4px 8px rgba(0, 0, 0, 0.15),
-                inset 0 4px 8px rgba(255, 255, 255, 0.3);
-            position: relative;
-            transform: translateZ(0);
-            transition: all 0.3s;
-        }
-        
-        .sound-btn:hover .sound-btn-3d {
-            transform: translateZ(10px) rotateX(10deg) rotateY(-10deg);
-            box-shadow: 
-                0 15px 25px rgba(0, 0, 0, 0.2),
-                0 8px 10px rgba(0, 0, 0, 0.1),
-                inset 0 -4px 8px rgba(0, 0, 0, 0.2),
-                inset 0 4px 8px rgba(255, 255, 255, 0.4);
-        }
-        
-        .sound-btn:active .sound-btn-3d {
-            transform: translateZ(5px);
-            box-shadow: 
-                0 5px 10px rgba(0, 0, 0, 0.1),
-                0 3px 5px rgba(0, 0, 0, 0.1),
-                inset 0 -2px 4px rgba(0, 0, 0, 0.2),
-                inset 0 2px 4px rgba(255, 255, 255, 0.2);
-        }
-        
-        /* Creating the illusion of depth with a pseudo element */
-        .sound-btn-3d::before {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 6%;
-            width: 88%;
-            height: 15%;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 50%;
-            filter: blur(5px);
-            z-index: -1;
-        }
-        
-        .sound-btn:hover .sound-btn-3d::before {
-            filter: blur(8px);
-        }
-    `;
-    document.head.appendChild(style);
-}
-
-/**
- * Adds a food-themed animation to the sound toggle button
- */
-function addSoundToggleAnimation(button) {
-    const foodIcons = ['🌶️', '🍛', '🥘', '🍲', '🥮', '🍚'];
-    
-    button.addEventListener('mouseover', function() {
-        // Create floating food particles when hovered
-        for (let i = 0; i < 3; i++) {
-            const particle = document.createElement('span');
-            particle.textContent = foodIcons[Math.floor(Math.random() * foodIcons.length)];
-            particle.className = 'food-particle';
-            particle.style.position = 'absolute';
-            particle.style.fontSize = '16px';
-            particle.style.left = '50%';
-            particle.style.bottom = '100%';
-            particle.style.opacity = '1';
-            particle.style.transform = `translateX(${-10 + Math.random() * 20}px)`;
-            particle.style.animation = `floatUp 1s ease-out forwards ${i * 0.2}s`;
-            
-            button.appendChild(particle);
-            
-            // Remove particles after animation
-            setTimeout(() => {
-                if (particle.parentNode === button) {
-                    button.removeChild(particle);
-                }
-            }, 1200 + i * 200);
-        }
-    });
-    
-    // Add keyframes for particle animation
-    if (!document.getElementById('food-particle-keyframes')) {
-        const style = document.createElement('style');
-        style.id = 'food-particle-keyframes';
-        style.textContent = `
-            @keyframes floatUp {
-                0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 1; }
-                100% { transform: translateY(-40px) translateX(${-20 + Math.random() * 40}px) rotate(${-20 + Math.random() * 40}deg); opacity: 0; }
-            }
-        `;
-        document.head.appendChild(style);
-    }
-}
-
-/**
  * Toggle music mute/unmute state
  */
 function toggleMute() {
     isMuted = !isMuted;
     
-    const soundBtn = document.getElementById('soundToggle');
-    if (soundBtn) {
-        soundBtn.innerHTML = isMuted ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-up"></i>';
-        soundBtn.setAttribute('aria-label', isMuted ? 'Unmute background music' : 'Mute background music');
-        soundBtn.title = isMuted ? 'Turn music on' : 'Turn music off';
-    }
+    updateLogoAudioState();
     
     if (isMuted) {
         backgroundMusic.pause();
@@ -408,6 +229,28 @@ function toggleMute() {
     
     // Save preference to localStorage
     localStorage.setItem('musicMuted', isMuted);
+
+    // Add visual feedback for the logo click
+    addLogoClickFeedback();
+}
+
+/**
+ * Updates the logo appearance based on audio state
+ */
+function updateLogoAudioState() {
+    const logoToggle = document.getElementById('logoAudioToggle');
+    if (logoToggle) {
+        logoToggle.setAttribute('aria-label', isMuted ? 'Unmute background music' : 'Mute background music');
+        logoToggle.title = isMuted ? 'Click to play music' : 'Click to pause music';
+        
+        // We could add a visual indicator on the logo if desired
+        // For example, adding a small icon or changing the logo's opacity
+        const logoImage = logoToggle.querySelector('.logo-image');
+        if (logoImage) {
+            logoImage.style.transition = 'all 0.3s ease';
+            logoImage.style.filter = isMuted ? 'grayscale(50%)' : 'grayscale(0%)';
+        }
+    }
 }
 
 /**
@@ -451,47 +294,125 @@ function addTasteMessage(message) {
 }
 
 /**
- * Add animated food decorations to the page
+ * Add animation to logo for sound toggle indication
  */
-function addFoodDecorations() {
-    if (!isIndexPage()) return;
-    
-    const heroSection = document.querySelector('.hero');
-    if (!heroSection) return;
-    
-    // Add additional food decorations
-    const foodIcons = [
-        { icon: 'fas fa-mortar-pestle', color: '#FFD166' },
-        { icon: 'fas fa-pepper-hot', color: '#E63946' },
-        { icon: 'fas fa-leaf', color: '#4CAF50' },
-        { icon: 'fas fa-cookie', color: '#FF9800' }
-    ];
-    
-    for (let i = 0; i < foodIcons.length; i++) {
-        const decoration = document.createElement('i');
-        decoration.className = `${foodIcons[i].icon} food-decoration spice${i+1}`;
-        decoration.style.color = foodIcons[i].color;
-        heroSection.appendChild(decoration);
+function addLogoSoundAnimation() {
+    // Add CSS for logo interactions
+    const style = document.createElement('style');
+    style.textContent = `
+        .logo-image {
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        
+        .logo:hover .logo-image {
+            transform: scale(1.05);
+        }
+        
+        .logo:active .logo-image {
+            transform: scale(0.95);
+        }
+        
+        .logo-pulse {
+            animation: logoPulse 0.5s ease-in-out;
+        }
+        
+        @keyframes logoPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .logo-music-indicator {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .logo-music-active .logo-music-indicator {
+            opacity: 1;
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+/**
+ * Add visual feedback when logo is clicked
+ */
+function addLogoClickFeedback() {
+    const logoImage = document.querySelector('.logo-image');
+    if (logoImage) {
+        // Remove existing animation class
+        logoImage.classList.remove('logo-pulse');
+        
+        // Force reflow to restart the animation
+        void logoImage.offsetWidth;
+        
+        // Add animation class
+        logoImage.classList.add('logo-pulse');
+        
+        // Create music notes for visual feedback
+        const musicNotes = isMuted ? '🔇' : ['🎵', '🎶', '♪', '♫'];
+        const notesContainer = document.createElement('div');
+        notesContainer.style.position = 'absolute';
+        notesContainer.style.top = '0';
+        notesContainer.style.left = '50%';
+        notesContainer.style.zIndex = '100';
+        notesContainer.style.pointerEvents = 'none';
+        
+        logoImage.parentNode.style.position = 'relative';
+        logoImage.parentNode.appendChild(notesContainer);
+        
+        if (!isMuted) {
+            for (let i = 0; i < 3; i++) {
+                const note = document.createElement('div');
+                note.textContent = musicNotes[Math.floor(Math.random() * musicNotes.length)];
+                note.style.position = 'absolute';
+                note.style.fontSize = '16px';
+                note.style.opacity = '0';
+                note.style.transform = `translate(-50%, -${20 + i * 10}px)`;
+                note.style.animation = `floatingNotes 1s ease-out forwards ${i * 0.2}s`;
+                notesContainer.appendChild(note);
+            }
+        } else {
+            const note = document.createElement('div');
+            note.textContent = musicNotes;
+            note.style.position = 'absolute';
+            note.style.fontSize = '20px';
+            note.style.opacity = '0';
+            note.style.transform = 'translate(-50%, -20px)';
+            note.style.animation = 'fadeOutNote 1s ease-out forwards';
+            notesContainer.appendChild(note);
+        }
+        
+        // Add keyframes for note animation
+        if (!document.getElementById('logo-audio-keyframes')) {
+            const animStyle = document.createElement('style');
+            animStyle.id = 'logo-audio-keyframes';
+            animStyle.textContent = `
+                @keyframes floatingNotes {
+                    0% { transform: translate(-50%, 0); opacity: 1; }
+                    100% { transform: translate(-50%, -40px); opacity: 0; }
+                }
+                
+                @keyframes fadeOutNote {
+                    0% { transform: translate(-50%, 0); opacity: 1; }
+                    100% { transform: translate(-50%, -20px); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(animStyle);
+        }
+        
+        // Clean up notes after animation
+        setTimeout(() => {
+            if (notesContainer.parentNode) {
+                notesContainer.parentNode.removeChild(notesContainer);
+            }
+        }, 1500);
     }
-    
-    // Add masala container with colorful circles
-    const masalaContainer = document.createElement('div');
-    masalaContainer.className = 'masala-container';
-    
-    const spices = ['turmeric', 'paprika', 'coriander'];
-    spices.forEach(spice => {
-        const circle = document.createElement('div');
-        circle.className = `masala-circle ${spice}`;
-        masalaContainer.appendChild(circle);
-    });
-    
-    heroSection.appendChild(masalaContainer);
-    
-    // Add thali patterns
-    const sizes = ['small', 'medium', 'large'];
-    sizes.forEach(size => {
-        const thali = document.createElement('div');
-        thali.className = `thali-pattern ${size}`;
-        heroSection.appendChild(thali);
-    });
 }
